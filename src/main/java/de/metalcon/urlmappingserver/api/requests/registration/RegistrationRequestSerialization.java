@@ -46,4 +46,18 @@ public class RegistrationRequestSerialization {
 
         public static final String RELEASE_YEAR = "releaseYear";
     }
+
+    public class Tour {
+
+        public static final String YEAR = "year";
+    }
+
+    public class Track {
+
+        public static final String BAND = "band";
+
+        public static final String RECORD = "record";
+
+        public static final String TRACK_NUMBER = "trackNumber";
+    }
 }
