@@ -60,4 +60,11 @@ public class RegistrationRequestSerialization {
 
         public static final String TRACK_NUMBER = "trackNumber";
     }
+
+    public class User {
+
+        public static final String FIRST_NAME = "firstName";
+
+        public static final String LAST_NAME = "lastName";
+    }
 }
