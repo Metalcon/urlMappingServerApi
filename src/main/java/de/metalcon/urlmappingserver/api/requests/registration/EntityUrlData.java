@@ -77,11 +77,32 @@ public abstract class EntityUrlData extends Request {
             case BAND:
                 return BandUrlData.deserialize(entity, muid);
 
+            case CITY:
+                return CityUrlData.deserialize(entity, muid);
+
+            case EVENT:
+                return EventUrlData.deserialize(entity, muid);
+
             case GENRE:
                 return GenreUrlData.deserialize(entity, muid);
 
             case INSTRUMENT:
                 return InstrumentUrlData.deserialize(entity, muid);
+
+            case RECORD:
+                return RecordUrlData.deserialize(entity, muid);
+
+            case TOUR:
+                return TourUrlData.deserialize(entity, muid);
+
+            case TRACK:
+                return TrackUrlData.deserialize(entity, muid);
+
+            case USER:
+                return UserUrlData.deserialize(entity, muid);
+
+            case VENUE:
+                return VenueUrlData.deserialize(entity, muid);
 
             default:
                 throw new UnsupportedOperationException(
