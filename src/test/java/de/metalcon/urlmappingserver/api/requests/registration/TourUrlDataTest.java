@@ -3,6 +3,7 @@ package de.metalcon.urlmappingserver.api.requests.registration;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -21,6 +22,11 @@ public class TourUrlDataTest extends EntityUrlDataTest {
         INVALID_MUID = new Muid(1);
         tour = new TourUrlData(VALID_MUID, VALID_NAME, VALID_YEAR);
         sourceEntity = tour;
+    }
+
+    @After
+    public void tearDown() {
+        INVALID_MUID = new Muid(0);
     }
 
     @Override

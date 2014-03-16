@@ -8,8 +8,8 @@ import org.junit.runners.Suite.SuiteClasses;
 @SuiteClasses({
     BandUrlDataTest.class, CityUrlDataTest.class, EventUrlDataTest.class,
     GenreUrlDataTest.class, InstrumentUrlDataTest.class,
-    RecordUrlDataTest.class, TourUrlData.class, TrackUrlData.class,
-    VenueUrlDataTest.class
+    RecordUrlDataTest.class, TourUrlDataTest.class, TrackUrlDataTest.class,
+    UserUrlDataTest.class, VenueUrlDataTest.class
 })
 public class EntityUrlDataTests {
 

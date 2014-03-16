@@ -15,7 +15,7 @@ public class BandUrlDataTest extends EntityUrlDataTest {
 
     @Override
     public void serialize() {
-        serObject = BandUrlData.serialize(sourceEntity);
+        serObject = BandUrlData.serializeEntity(sourceEntity);
     }
 
     @Override

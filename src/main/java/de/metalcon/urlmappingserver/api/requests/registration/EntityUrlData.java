@@ -44,7 +44,7 @@ public abstract class EntityUrlData extends Request {
         return getMuid().equals(e.getMuid()) && getName().equals(e.getName());
     }
 
-    protected static String serialize(EntityUrlData entity) {
+    protected static String serializeEntity(EntityUrlData entity) {
         return serializeEntityToJson(entity).toJSONString();
     }
 

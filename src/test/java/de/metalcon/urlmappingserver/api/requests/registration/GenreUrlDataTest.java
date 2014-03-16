@@ -15,7 +15,7 @@ public class GenreUrlDataTest extends EntityUrlDataTest {
 
     @Override
     public void serialize() {
-        serObject = GenreUrlData.serialize(sourceEntity);
+        serObject = GenreUrlData.serializeEntity(sourceEntity);
     }
 
     @Override

@@ -15,7 +15,7 @@ public class CityUrlDataTest extends EntityUrlDataTest {
 
     @Override
     public void serialize() {
-        serObject = CityUrlData.serialize(sourceEntity);
+        serObject = CityUrlData.serializeEntity(sourceEntity);
     }
 
     @Override

@@ -15,7 +15,7 @@ public class InstrumentUrlDataTest extends EntityUrlDataTest {
 
     @Override
     public void serialize() {
-        serObject = InstrumentUrlData.serialize(sourceEntity);
+        serObject = InstrumentUrlData.serializeEntity(sourceEntity);
     }
 
     @Override

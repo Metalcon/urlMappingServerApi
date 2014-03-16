@@ -39,7 +39,6 @@ public class VenueUrlDataTest extends EntityUrlDataTest {
         venue.city =
                 new CityUrlData(new Muid(VALID_CITY.getMuid().getValue() + 10),
                         VALID_CITY.getName());
-        serialize();
         assertNotNull(entity);
         assertFalse(sourceEntity.equals(entity));
     }

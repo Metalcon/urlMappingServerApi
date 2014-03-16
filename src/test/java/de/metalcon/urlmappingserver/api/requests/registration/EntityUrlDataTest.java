@@ -53,6 +53,9 @@ public abstract class EntityUrlDataTest {
     public void testInvalidMuid() {
         sourceEntity.muid = INVALID_MUID;
         process();
+        if (entity.getMuid() != null) {
+            System.out.println("ok");
+        }
         assertNull(entity.getMuid());
     }
 }
