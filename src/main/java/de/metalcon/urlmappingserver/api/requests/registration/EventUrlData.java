@@ -42,16 +42,16 @@ public class EventUrlData extends EntityUrlData {
     }
 
     public static String serialize(EventUrlData event) {
-        return serializeToJson(event).toJSONString();
+        return serializeEventToJson(event).toJSONString();
     }
 
     @SuppressWarnings("unchecked")
-    static JSONObject serializeToJson(EventUrlData event) {
-        JSONObject object = EntityUrlData.serializeToJson(event);
+    static JSONObject serializeEventToJson(EventUrlData event) {
+        JSONObject object = EntityUrlData.serializeEntityToJson(event);
         object.put(RegistrationRequestSerialization.Event.CITY,
-                CityUrlData.serializeToJson(event.getCity()));
+                CityUrlData.serializeEntityToJson(event.getCity()));
         object.put(RegistrationRequestSerialization.Event.VENUE,
-                VenueUrlData.serializeToJson(event.getVenue()));
+                VenueUrlData.serializeVenueToJson(event.getVenue()));
         return object;
     }
 

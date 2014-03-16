@@ -33,12 +33,12 @@ public class TourUrlData extends EntityUrlData {
     }
 
     public static String serialize(TourUrlData tour) {
-        return serializeToJson(tour).toJSONString();
+        return serializeTourToJson(tour).toJSONString();
     }
 
     @SuppressWarnings("unchecked")
-    static JSONObject serializeToJson(TourUrlData tour) {
-        JSONObject object = EntityUrlData.serializeToJson(tour);
+    static JSONObject serializeTourToJson(TourUrlData tour) {
+        JSONObject object = EntityUrlData.serializeEntityToJson(tour);
         object.put(RegistrationRequestSerialization.Tour.YEAR, tour.getYear());
         return object;
     }

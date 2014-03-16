@@ -46,14 +46,14 @@ public class TrackUrlData extends EntityUrlData {
     }
 
     public static String serialize(TrackUrlData track) {
-        return serializeToJson(track).toJSONString();
+        return serializeTrackToJson(track).toJSONString();
     }
 
     @SuppressWarnings("unchecked")
-    static JSONObject serializeToJson(TrackUrlData track) {
-        JSONObject object = EntityUrlData.serializeToJson(track);
+    static JSONObject serializeTrackToJson(TrackUrlData track) {
+        JSONObject object = EntityUrlData.serializeEntityToJson(track);
         object.put(RegistrationRequestSerialization.Track.RECORD,
-                RecordUrlData.serializeToJson(track.getRecord()));
+                RecordUrlData.serializeRecordToJson(track.getRecord()));
         object.put(RegistrationRequestSerialization.Track.TRACK_NUMBER,
                 track.getTrackNumber());
         return object;

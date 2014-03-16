@@ -42,14 +42,14 @@ public class RecordUrlData extends EntityUrlData {
     }
 
     public static String serialize(RecordUrlData record) {
-        return serializeToJson(record).toJSONString();
+        return serializeRecordToJson(record).toJSONString();
     }
 
     @SuppressWarnings("unchecked")
-    static JSONObject serializeToJson(RecordUrlData record) {
-        JSONObject object = EntityUrlData.serializeToJson(record);
+    static JSONObject serializeRecordToJson(RecordUrlData record) {
+        JSONObject object = EntityUrlData.serializeEntityToJson(record);
         object.put(RegistrationRequestSerialization.Record.BAND,
-                BandUrlData.serializeToJson(record.getBand()));
+                BandUrlData.serializeEntityToJson(record.getBand()));
         object.put(RegistrationRequestSerialization.Record.RELEASE_YEAR,
                 record.getReleaseYear());
         return object;

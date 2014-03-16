@@ -44,12 +44,13 @@ public abstract class EntityUrlData extends Request {
         return getMuid().equals(e.getMuid()) && getName().equals(e.getName());
     }
 
-    public static String serialize(EntityUrlData entity) {
-        return serializeToJson(entity).toJSONString();
+    protected static String serialize(EntityUrlData entity) {
+        return serializeEntityToJson(entity).toJSONString();
     }
 
     @SuppressWarnings("unchecked")
-    static JSONObject serializeToJson(final EntityUrlData object) {
+    protected static JSONObject
+        serializeEntityToJson(final EntityUrlData object) {
         JSONObject muidObject = new JSONObject();
         muidObject.put(RegistrationRequestSerialization.Muid.VALUE, object
                 .getMuid().getValue());
