@@ -17,9 +17,8 @@ public class BandUrlData extends EntityUrlData {
         return deserialize(band, null);
     }
 
-    public static BandUrlData deserialize(
-            JSONObject band,
-            Muid deserializedMuid) {
+    public static BandUrlData
+        deserialize(JSONObject band, Muid deserializedMuid) {
         if (deserializedMuid == null) {
             deserializedMuid = deserializeMuid(band, EntityType.BAND);
         }

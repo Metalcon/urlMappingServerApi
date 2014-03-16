@@ -40,7 +40,7 @@ public class ZeroMQSerialization {
         }
 
         public static Long getLong(String key, JSONObject object) {
-            return Long.valueOf(getString(key, object));
+            return (Long) getFieldValue(key, object);
         }
 
         public static String parseDate(Date date) {

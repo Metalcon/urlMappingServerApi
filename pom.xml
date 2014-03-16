@@ -25,11 +25,11 @@
 
   <properties>
     <!-- version of testing framework JUnit -->
-    <junit.version>4.5</junit.version>
+    <junit.version>4.9</junit.version>
 
     <!-- version of JSON -->
     <json.version>1.1</json.version>
-    
+
     <!-- version of Metalcon domain -->
     <muid.version>0.0.1-SNAPSHOT</muid.version>
   </properties>
@@ -41,6 +41,7 @@
       <version>${junit.version}</version>
       <scope>test</scope>
     </dependency>
+    
     <dependency>
       <groupId>com.googlecode.json-simple</groupId>
       <artifactId>json-simple</artifactId>
