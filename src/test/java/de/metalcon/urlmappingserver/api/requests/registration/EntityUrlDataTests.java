@@ -6,8 +6,9 @@ import org.junit.runners.Suite.SuiteClasses;
 
 @RunWith(Suite.class)
 @SuiteClasses({
-    BandUrlDataTest.class, CityUrlDataTest.class, GenreUrlDataTest.class,
-    InstrumentUrlDataTest.class, RecordUrlDataTest.class
+    BandUrlDataTest.class, CityUrlDataTest.class, EventUrlDataTest.class,
+    GenreUrlDataTest.class, InstrumentUrlDataTest.class,
+    RecordUrlDataTest.class, TourUrlData.class, VenueUrlDataTest.class
 })
 public class EntityUrlDataTests {
 

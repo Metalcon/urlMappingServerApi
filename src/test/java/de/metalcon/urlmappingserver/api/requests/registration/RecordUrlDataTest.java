@@ -25,7 +25,6 @@ public class RecordUrlDataTest extends EntityUrlDataTest {
                 new RecordUrlData(VALID_MUID, VALID_NAME, VALID_BAND,
                         VALID_RELEASE_YEAR);
         sourceEntity = record;
-
     }
 
     @Override
@@ -51,7 +50,7 @@ public class RecordUrlDataTest extends EntityUrlDataTest {
     @Test
     public void testDifferentReleaseYear() {
         process();
-        record.releaseYear = 2013;
+        record.releaseYear = VALID_RELEASE_YEAR - 1;
         assertNotNull(entity);
         assertFalse(sourceEntity.equals(entity));
     }

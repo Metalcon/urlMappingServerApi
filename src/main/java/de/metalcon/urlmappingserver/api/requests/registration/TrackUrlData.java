@@ -50,7 +50,7 @@ public class TrackUrlData extends EntityUrlData {
         object.put(RegistrationRequestSerialization.Track.RECORD,
                 RecordUrlData.serializeToJson(track.getRecord()));
         object.put(RegistrationRequestSerialization.Track.TRACK_NUMBER,
-                ZeroMQSerialization.Helper.parseInteger(track.getTrackNumber()));
+                track.getTrackNumber());
         return object;
     }
 

@@ -30,6 +30,17 @@ public class EventUrlData extends EntityUrlData {
         return venue;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        boolean entityEquals = super.equals(o);
+        if (entityEquals) {
+            EventUrlData e = (EventUrlData) o;
+            return getCity().equals(e.getCity())
+                    && getVenue().equals(e.getVenue());
+        }
+        return false;
+    }
+
     public static String serialize(EventUrlData event) {
         return serializeToJSON(event).toJSONString();
     }

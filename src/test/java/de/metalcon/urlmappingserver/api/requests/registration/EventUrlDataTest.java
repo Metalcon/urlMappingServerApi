@@ -10,7 +10,7 @@ import de.metalcon.domain.Muid;
 
 public class EventUrlDataTest extends EntityUrlDataTest {
 
-    public static Muid VALID_MUID = new Muid(5);
+    public static Muid VALID_MUID = new Muid(6);
 
     protected static CityUrlData VALID_CITY = new CityUrlData(
             CityUrlDataTest.VALID_MUID, VALID_NAME);
@@ -45,6 +45,19 @@ public class EventUrlDataTest extends EntityUrlDataTest {
         event.city =
                 new CityUrlData(new Muid(VALID_CITY.getMuid().getValue() + 10),
                         VALID_CITY.getName());
+        serialize();
+        System.out.println(serObject);
+        assertNotNull(entity);
+        assertFalse(sourceEntity.equals(entity));
+    }
+
+    @Test
+    public void testDifferentVenue() {
+        process();
+        event.venue =
+                new VenueUrlData(
+                        new Muid(VALID_VENUE.getMuid().getValue() + 10),
+                        VALID_VENUE.getName(), VALID_VENUE.getCity());
         serialize();
         System.out.println(serObject);
         assertNotNull(entity);

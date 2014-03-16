@@ -8,7 +8,7 @@ import de.metalcon.urlmappingserver.api.ZeroMQSerialization;
 
 public class TourUrlData extends EntityUrlData {
 
-    private int year;
+    protected int year;
 
     public TourUrlData(
             Muid muid,
@@ -22,6 +22,16 @@ public class TourUrlData extends EntityUrlData {
         return year;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        boolean entityEquals = super.equals(o);
+        if (entityEquals) {
+            TourUrlData t = (TourUrlData) o;
+            return getYear() == t.getYear();
+        }
+        return false;
+    }
+
     public static String serialize(TourUrlData tour) {
         return serializeToJSON(tour).toJSONString();
     }
@@ -29,8 +39,7 @@ public class TourUrlData extends EntityUrlData {
     @SuppressWarnings("unchecked")
     static JSONObject serializeToJSON(TourUrlData tour) {
         JSONObject object = EntityUrlData.serializeToJson(tour);
-        object.put(RegistrationRequestSerialization.Tour.YEAR,
-                ZeroMQSerialization.Helper.parseInteger(tour.getYear()));
+        object.put(RegistrationRequestSerialization.Tour.YEAR, tour.getYear());
         return object;
     }
 
