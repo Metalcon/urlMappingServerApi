@@ -9,9 +9,9 @@ import de.metalcon.urlmappingserver.api.requests.Request;
 
 public abstract class EntityUrlData extends Request {
 
-    protected final Muid muid;
+    protected Muid muid;
 
-    protected final String name;
+    protected String name;
 
     public EntityUrlData(
             Muid muid,
@@ -26,6 +26,22 @@ public abstract class EntityUrlData extends Request {
 
     public String getName() {
         return name;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null) {
+            return false;
+        }
+        if (o == this) {
+            return true;
+        }
+        if (o.getClass() != getClass()) {
+            return false;
+        }
+
+        EntityUrlData e = (EntityUrlData) o;
+        return getMuid().equals(e.getMuid()) && getName().equals(e.getName());
     }
 
     public static String serialize(EntityUrlData entity) {

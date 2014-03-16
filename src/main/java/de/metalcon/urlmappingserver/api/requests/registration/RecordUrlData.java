@@ -8,9 +8,9 @@ import de.metalcon.urlmappingserver.api.ZeroMQSerialization;
 
 public class RecordUrlData extends EntityUrlData {
 
-    private BandUrlData band;
+    protected BandUrlData band;
 
-    private int releaseYear;
+    protected int releaseYear;
 
     public RecordUrlData(
             Muid muid,
@@ -30,6 +30,17 @@ public class RecordUrlData extends EntityUrlData {
         return releaseYear;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        boolean entityEquals = super.equals(o);
+        if (entityEquals) {
+            RecordUrlData r = (RecordUrlData) o;
+            return getBand().equals(r.getBand())
+                    && getReleaseYear() == r.getReleaseYear();
+        }
+        return false;
+    }
+
     public static String serialize(RecordUrlData record) {
         return serializeToJSON(record).toJSONString();
     }
@@ -39,9 +50,8 @@ public class RecordUrlData extends EntityUrlData {
         JSONObject object = EntityUrlData.serializeToJson(record);
         object.put(RegistrationRequestSerialization.Record.BAND,
                 BandUrlData.serializeToJson(record.getBand()));
-        object.put(
-                RegistrationRequestSerialization.Record.RELEASE_YEAR,
-                ZeroMQSerialization.Helper.parseInteger(record.getReleaseYear()));
+        object.put(RegistrationRequestSerialization.Record.RELEASE_YEAR,
+                record.getReleaseYear());
         return object;
     }
 

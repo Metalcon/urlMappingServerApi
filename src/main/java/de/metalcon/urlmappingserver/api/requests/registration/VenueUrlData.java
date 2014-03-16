@@ -8,7 +8,7 @@ import de.metalcon.urlmappingserver.api.ZeroMQSerialization;
 
 public class VenueUrlData extends EntityUrlData {
 
-    private CityUrlData city;
+    protected CityUrlData city;
 
     public VenueUrlData(
             Muid muid,
@@ -20,6 +20,16 @@ public class VenueUrlData extends EntityUrlData {
 
     public CityUrlData getCity() {
         return city;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        boolean entityEquals = super.equals(o);
+        if (entityEquals) {
+            VenueUrlData v = (VenueUrlData) o;
+            return getCity().equals(v.getCity());
+        }
+        return false;
     }
 
     public static String serialize(VenueUrlData venue) {

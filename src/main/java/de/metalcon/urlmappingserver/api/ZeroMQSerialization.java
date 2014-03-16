@@ -36,7 +36,7 @@ public class ZeroMQSerialization {
         }
 
         public static Integer getInteger(String key, JSONObject object) {
-            return Integer.valueOf(getString(key, object));
+            return (int) (long) getLong(key, object);
         }
 
         public static Long getLong(String key, JSONObject object) {

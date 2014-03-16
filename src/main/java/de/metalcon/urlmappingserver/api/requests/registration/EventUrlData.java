@@ -8,9 +8,9 @@ import de.metalcon.urlmappingserver.api.ZeroMQSerialization;
 
 public class EventUrlData extends EntityUrlData {
 
-    private CityUrlData city;
+    protected CityUrlData city;
 
-    private VenueUrlData venue;
+    protected VenueUrlData venue;
 
     public EventUrlData(
             Muid muid,
