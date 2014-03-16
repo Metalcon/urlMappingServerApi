@@ -33,11 +33,11 @@ public class VenueUrlData extends EntityUrlData {
     }
 
     public static String serialize(VenueUrlData venue) {
-        return serializeToJSON(venue).toJSONString();
+        return serializeToJson(venue).toJSONString();
     }
 
     @SuppressWarnings("unchecked")
-    static JSONObject serializeToJSON(VenueUrlData venue) {
+    static JSONObject serializeToJson(VenueUrlData venue) {
         JSONObject object = EntityUrlData.serializeToJson(venue);
         object.put(RegistrationRequestSerialization.Venue.CITY,
                 CityUrlData.serializeToJson(venue.getCity()));

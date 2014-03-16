@@ -42,11 +42,11 @@ public class RecordUrlData extends EntityUrlData {
     }
 
     public static String serialize(RecordUrlData record) {
-        return serializeToJSON(record).toJSONString();
+        return serializeToJson(record).toJSONString();
     }
 
     @SuppressWarnings("unchecked")
-    static JSONObject serializeToJSON(RecordUrlData record) {
+    static JSONObject serializeToJson(RecordUrlData record) {
         JSONObject object = EntityUrlData.serializeToJson(record);
         object.put(RegistrationRequestSerialization.Record.BAND,
                 BandUrlData.serializeToJson(record.getBand()));

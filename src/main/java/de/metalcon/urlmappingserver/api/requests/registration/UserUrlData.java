@@ -34,11 +34,11 @@ public class UserUrlData extends EntityUrlData {
     }
 
     public static String serialize(UserUrlData user) {
-        return serializeToJSON(user).toJSONString();
+        return serializeToJson(user).toJSONString();
     }
 
     @SuppressWarnings("unchecked")
-    static JSONObject serializeToJSON(UserUrlData user) {
+    static JSONObject serializeToJson(UserUrlData user) {
         JSONObject object = EntityUrlData.serializeToJson(user);
         object.put(RegistrationRequestSerialization.User.FIRST_NAME,
                 user.getFirstName());

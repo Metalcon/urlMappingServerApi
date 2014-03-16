@@ -12,10 +12,10 @@ public class RecordUrlDataTest extends EntityUrlDataTest {
 
     public static Muid VALID_MUID = new Muid(3);
 
-    protected static final BandUrlData VALID_BAND = new BandUrlData(
+    public static final BandUrlData VALID_BAND = new BandUrlData(
             BandUrlDataTest.VALID_MUID, VALID_NAME);
 
-    protected static final int VALID_RELEASE_YEAR = 2014;
+    public static final int VALID_RELEASE_YEAR = 2014;
 
     protected RecordUrlData record;
 
