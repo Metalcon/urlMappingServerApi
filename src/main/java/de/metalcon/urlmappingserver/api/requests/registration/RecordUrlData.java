@@ -19,6 +19,7 @@ public class RecordUrlData extends EntityUrlData {
      * @param band
      *            may be null if not clear
      * @param releaseYear
+     *            may be zero
      */
     public RecordUrlData(
             Muid muid,
