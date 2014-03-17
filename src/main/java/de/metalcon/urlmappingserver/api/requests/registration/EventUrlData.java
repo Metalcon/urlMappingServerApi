@@ -32,8 +32,7 @@ public class EventUrlData extends EntityUrlData {
 
     @Override
     public boolean equals(Object o) {
-        boolean entityEquals = super.equals(o);
-        if (entityEquals) {
+        if (super.equals(o)) {
             EventUrlData e = (EventUrlData) o;
             return getCity().equals(e.getCity())
                     && getVenue().equals(e.getVenue());

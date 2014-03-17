@@ -31,8 +31,7 @@ public class UserUrlData extends EntityUrlData {
 
     @Override
     public boolean equals(Object o) {
-        boolean entityEquals = super.equals(o);
-        if (entityEquals) {
+        if (super.equals(o)) {
             UserUrlData u = (UserUrlData) o;
             return getFirstName().equals(u.getFirstName())
                     && getLastName().equals(u.getLastName());

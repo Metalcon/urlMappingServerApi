@@ -40,8 +40,7 @@ public class RecordUrlData extends EntityUrlData {
 
     @Override
     public boolean equals(Object o) {
-        boolean entityEquals = super.equals(o);
-        if (entityEquals) {
+        if (super.equals(o)) {
             RecordUrlData r = (RecordUrlData) o;
             return getBand().equals(r.getBand())
                     && getReleaseYear() == r.getReleaseYear();

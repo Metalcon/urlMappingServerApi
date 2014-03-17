@@ -36,8 +36,7 @@ public class TrackUrlData extends EntityUrlData {
 
     @Override
     public boolean equals(Object o) {
-        boolean entityEquals = super.equals(o);
-        if (entityEquals) {
+        if (super.equals(o)) {
             TrackUrlData t = (TrackUrlData) o;
             return getRecord().equals(t.getRecord())
                     && getTrackNumber() == t.getTrackNumber();

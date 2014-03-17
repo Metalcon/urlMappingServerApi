@@ -24,8 +24,7 @@ public class TourUrlData extends EntityUrlData {
 
     @Override
     public boolean equals(Object o) {
-        boolean entityEquals = super.equals(o);
-        if (entityEquals) {
+        if (super.equals(o)) {
             TourUrlData t = (TourUrlData) o;
             return getYear() == t.getYear();
         }
