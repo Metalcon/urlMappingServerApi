@@ -1,7 +1,6 @@
 package de.metalcon.urlmappingserver.api.requests.registration;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotNull;
+import java.sql.Date;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -11,6 +10,8 @@ import de.metalcon.domain.Muid;
 public class EventUrlDataTest extends EntityUrlDataTest {
 
     public static Muid VALID_MUID = new Muid(6);
+
+    protected static Date VALID_DATE = new Date(System.currentTimeMillis());
 
     protected static CityUrlData VALID_CITY = new CityUrlData(
             CityUrlDataTest.VALID_MUID, VALID_NAME);
@@ -24,8 +25,8 @@ public class EventUrlDataTest extends EntityUrlDataTest {
     @Before
     public void setUp() {
         event =
-                new EventUrlData(VALID_MUID, VALID_NAME, VALID_CITY,
-                        VALID_VENUE);
+                new EventUrlData(VALID_MUID, VALID_NAME, VALID_DATE,
+                        VALID_CITY, VALID_VENUE);
         sourceEntity = event;
     }
 
@@ -40,15 +41,19 @@ public class EventUrlDataTest extends EntityUrlDataTest {
     }
 
     @Test
+    public void testDifferentDate() {
+        process();
+        event.date = new Date(System.currentTimeMillis() + 1);
+        testEntitiesNotEqual();
+    }
+
+    @Test
     public void testDifferentCity() {
         process();
         event.city =
                 new CityUrlData(new Muid(VALID_CITY.getMuid().getValue() + 10),
                         VALID_CITY.getName());
-        serialize();
-        System.out.println(serObject);
-        assertNotNull(entity);
-        assertFalse(sourceEntity.equals(entity));
+        testEntitiesNotEqual();
     }
 
     @Test
@@ -58,9 +63,6 @@ public class EventUrlDataTest extends EntityUrlDataTest {
                 new VenueUrlData(
                         new Muid(VALID_VENUE.getMuid().getValue() + 10),
                         VALID_VENUE.getName(), VALID_VENUE.getCity());
-        serialize();
-        System.out.println(serObject);
-        assertNotNull(entity);
-        assertFalse(sourceEntity.equals(entity));
+        testEntitiesNotEqual();
     }
 }

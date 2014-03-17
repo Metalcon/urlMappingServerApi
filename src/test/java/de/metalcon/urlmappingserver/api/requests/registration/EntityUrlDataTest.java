@@ -1,6 +1,8 @@
 package de.metalcon.urlmappingserver.api.requests.registration;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.fail;
 
@@ -41,6 +43,13 @@ public abstract class EntityUrlDataTest {
             fail("serialized object malformed JSON");
         }
         deserialize();
+    }
+
+    protected void testEntitiesNotEqual() {
+        serialize();
+        System.out.println(serObject);
+        assertNotNull(entity);
+        assertFalse(sourceEntity.equals(entity));
     }
 
     @Test
