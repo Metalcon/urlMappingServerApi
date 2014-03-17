@@ -51,10 +51,6 @@ public class ZeroMQSerialization {
             return (String) getFieldValue(key, object);
         }
 
-        public static String parseInteger(int value) {
-            return String.valueOf(value);
-        }
-
         public static Integer getInteger(String key, JSONObject object) {
             return (int) (long) getLong(key, object);
         }

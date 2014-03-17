@@ -8,26 +8,22 @@ import de.metalcon.urlmappingserver.api.ZeroMQSerialization;
 
 public class TrackUrlData extends EntityUrlData {
 
-    private BandUrlData band;
+    protected RecordUrlData record;
 
-    private RecordUrlData record;
-
-    private int trackNumber;
+    protected int trackNumber;
 
     public TrackUrlData(
             Muid muid,
             String name,
-            BandUrlData band,
             RecordUrlData record,
             int trackNumber) {
         super(muid, name);
-        this.band = band;
         this.record = record;
         this.trackNumber = trackNumber;
     }
 
     public BandUrlData getBand() {
-        return band;
+        return getRecord().getBand();
     }
 
     public RecordUrlData getRecord() {
@@ -38,25 +34,29 @@ public class TrackUrlData extends EntityUrlData {
         return trackNumber;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        boolean entityEquals = super.equals(o);
+        if (entityEquals) {
+            TrackUrlData t = (TrackUrlData) o;
+            return getRecord().equals(t.getRecord())
+                    && getTrackNumber() == t.getTrackNumber();
+        }
+        return false;
+    }
+
     public static String serialize(TrackUrlData track) {
-        return serializeToJSON(track).toJSONString();
+        return serializeTrackToJson(track).toJSONString();
     }
 
     @SuppressWarnings("unchecked")
-    static JSONObject serializeToJSON(TrackUrlData track) {
-        JSONObject object = EntityUrlData.serializeToJson(track);
-        object.put(RegistrationRequestSerialization.Track.BAND,
-                BandUrlData.serializeToJson(track.getBand()));
+    static JSONObject serializeTrackToJson(TrackUrlData track) {
+        JSONObject object = EntityUrlData.serializeEntityToJson(track);
         object.put(RegistrationRequestSerialization.Track.RECORD,
-                RecordUrlData.serializeToJson(track.getRecord()));
+                RecordUrlData.serializeRecordToJson(track.getRecord()));
         object.put(RegistrationRequestSerialization.Track.TRACK_NUMBER,
-                ZeroMQSerialization.Helper.parseInteger(track.getTrackNumber()));
+                track.getTrackNumber());
         return object;
-    }
-
-    protected static BandUrlData deserializeBandUrlData(JSONObject track) {
-        return BandUrlData.deserialize(ZeroMQSerialization.Helper.getObject(
-                RegistrationRequestSerialization.Track.BAND, track));
     }
 
     protected static RecordUrlData deserializeRecordUrlData(JSONObject track) {
@@ -80,12 +80,10 @@ public class TrackUrlData extends EntityUrlData {
             deserializedMuid = deserializeMuid(track, EntityType.TRACK);
         }
         String name = deserializeName(track);
-        BandUrlData band = deserializeBandUrlData(track);
         RecordUrlData record = deserializeRecordUrlData(track);
         int trackNumber = deserializeTrackNumber(track);
 
-        return new TrackUrlData(deserializedMuid, name, band, record,
-                trackNumber);
+        return new TrackUrlData(deserializedMuid, name, record, trackNumber);
     }
 
 }

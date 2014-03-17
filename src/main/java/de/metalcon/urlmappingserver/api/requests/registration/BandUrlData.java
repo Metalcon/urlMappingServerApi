@@ -26,5 +26,4 @@ public class BandUrlData extends EntityUrlData {
 
         return new BandUrlData(deserializedMuid, name);
     }
-
 }

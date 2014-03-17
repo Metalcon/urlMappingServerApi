@@ -8,7 +8,7 @@ import de.metalcon.urlmappingserver.api.ZeroMQSerialization;
 
 public class VenueUrlData extends EntityUrlData {
 
-    private CityUrlData city;
+    protected CityUrlData city;
 
     public VenueUrlData(
             Muid muid,
@@ -22,15 +22,25 @@ public class VenueUrlData extends EntityUrlData {
         return city;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        boolean entityEquals = super.equals(o);
+        if (entityEquals) {
+            VenueUrlData v = (VenueUrlData) o;
+            return getCity().equals(v.getCity());
+        }
+        return false;
+    }
+
     public static String serialize(VenueUrlData venue) {
-        return serializeToJSON(venue).toJSONString();
+        return serializeVenueToJson(venue).toJSONString();
     }
 
     @SuppressWarnings("unchecked")
-    static JSONObject serializeToJSON(VenueUrlData venue) {
-        JSONObject object = EntityUrlData.serializeToJson(venue);
+    static JSONObject serializeVenueToJson(VenueUrlData venue) {
+        JSONObject object = EntityUrlData.serializeEntityToJson(venue);
         object.put(RegistrationRequestSerialization.Venue.CITY,
-                CityUrlData.serializeToJson(venue.getCity()));
+                CityUrlData.serializeEntityToJson(venue.getCity()));
         return object;
     }
 

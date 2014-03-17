@@ -8,9 +8,9 @@ import de.metalcon.urlmappingserver.api.ZeroMQSerialization;
 
 public class UserUrlData extends EntityUrlData {
 
-    private String firstName;
+    protected String firstName;
 
-    private String lastName;
+    protected String lastName;
 
     public UserUrlData(
             Muid muid,
@@ -29,17 +29,28 @@ public class UserUrlData extends EntityUrlData {
         return lastName;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        boolean entityEquals = super.equals(o);
+        if (entityEquals) {
+            UserUrlData u = (UserUrlData) o;
+            return getFirstName().equals(u.getFirstName())
+                    && getLastName().equals(u.getLastName());
+        }
+        return false;
+    }
+
     public static String concatNames(String firstName, String lastName) {
         return firstName + " " + lastName;
     }
 
     public static String serialize(UserUrlData user) {
-        return serializeToJSON(user).toJSONString();
+        return serializeUserToJson(user).toJSONString();
     }
 
     @SuppressWarnings("unchecked")
-    static JSONObject serializeToJSON(UserUrlData user) {
-        JSONObject object = EntityUrlData.serializeToJson(user);
+    static JSONObject serializeUserToJson(UserUrlData user) {
+        JSONObject object = EntityUrlData.serializeEntityToJson(user);
         object.put(RegistrationRequestSerialization.User.FIRST_NAME,
                 user.getFirstName());
         object.put(RegistrationRequestSerialization.User.LAST_NAME,

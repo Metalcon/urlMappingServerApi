@@ -26,5 +26,4 @@ public class CityUrlData extends EntityUrlData {
 
         return new CityUrlData(deserializedMuid, name);
     }
-
 }
