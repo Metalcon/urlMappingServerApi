@@ -12,6 +12,14 @@ public class RecordUrlData extends EntityUrlData {
 
     private int releaseYear;
 
+    /**
+     * 
+     * @param muid
+     * @param name
+     * @param band
+     *            may be null if not clear
+     * @param releaseYear
+     */
     public RecordUrlData(
             Muid muid,
             String name,

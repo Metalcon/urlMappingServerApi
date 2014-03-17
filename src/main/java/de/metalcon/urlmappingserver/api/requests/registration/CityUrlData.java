@@ -17,9 +17,8 @@ public class CityUrlData extends EntityUrlData {
         return deserialize(city, null);
     }
 
-    public static CityUrlData deserialize(
-            JSONObject city,
-            Muid deserializedMuid) {
+    public static CityUrlData
+        deserialize(JSONObject city, Muid deserializedMuid) {
         if (deserializedMuid == null) {
             deserializedMuid = deserializeMuid(city, EntityType.CITY);
         }

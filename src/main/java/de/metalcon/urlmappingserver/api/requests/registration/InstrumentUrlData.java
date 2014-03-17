@@ -5,8 +5,7 @@ import org.json.simple.JSONObject;
 import de.metalcon.domain.EntityType;
 import de.metalcon.domain.Muid;
 
-public class InstrumentUrlData extends
-        EntityUrlData {
+public class InstrumentUrlData extends EntityUrlData {
 
     public InstrumentUrlData(
             Muid muid,
@@ -14,8 +13,7 @@ public class InstrumentUrlData extends
         super(muid, name);
     }
 
-    public static InstrumentUrlData deserialize(
-            JSONObject instrument) {
+    public static InstrumentUrlData deserialize(JSONObject instrument) {
         return deserialize(instrument, null);
     }
 
