@@ -15,7 +15,7 @@ import org.json.simple.JSONObject;
 public class ZeroMQSerialization {
 
     private static final SimpleDateFormat DATE_FORMATTER =
-            new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+            new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
     public static class Helper {
 

@@ -16,6 +16,15 @@ public class EventUrlData extends EntityUrlData {
 
     protected VenueUrlData venue;
 
+    /**
+     * 
+     * @param muid
+     * @param name
+     * @param date
+     *            milliseconds will be ignored
+     * @param city
+     * @param venue
+     */
     public EventUrlData(
             Muid muid,
             String name,
@@ -23,7 +32,7 @@ public class EventUrlData extends EntityUrlData {
             CityUrlData city,
             VenueUrlData venue) {
         super(muid, name);
-        this.date = date;
+        this.date = new Date(date.getTime() - date.getTime() % 1000);
         this.city = city;
         this.venue = venue;
     }
@@ -44,6 +53,7 @@ public class EventUrlData extends EntityUrlData {
     public boolean equals(Object o) {
         if (super.equals(o)) {
             EventUrlData e = (EventUrlData) o;
+
             return getDate().equals(e.getDate())
                     && getCity().equals(e.getCity())
                     && getVenue().equals(e.getVenue());
