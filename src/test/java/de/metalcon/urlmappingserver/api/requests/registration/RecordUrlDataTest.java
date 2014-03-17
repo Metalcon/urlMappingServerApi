@@ -1,8 +1,5 @@
 package de.metalcon.urlmappingserver.api.requests.registration;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotNull;
-
 import org.junit.Before;
 import org.junit.Test;
 
@@ -43,15 +40,13 @@ public class RecordUrlDataTest extends EntityUrlDataTest {
         record.band =
                 new BandUrlData(new Muid(VALID_BAND.getMuid().getValue() + 10),
                         VALID_BAND.getName());
-        assertNotNull(entity);
-        assertFalse(sourceEntity.equals(entity));
+        testEntitiesNotEqual();
     }
 
     @Test
     public void testDifferentReleaseYear() {
         process();
         record.releaseYear = VALID_RELEASE_YEAR - 1;
-        assertNotNull(entity);
-        assertFalse(sourceEntity.equals(entity));
+        testEntitiesNotEqual();
     }
 }

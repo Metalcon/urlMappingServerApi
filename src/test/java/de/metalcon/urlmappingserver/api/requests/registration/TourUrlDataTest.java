@@ -1,8 +1,5 @@
 package de.metalcon.urlmappingserver.api.requests.registration;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotNull;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -43,7 +40,6 @@ public class TourUrlDataTest extends EntityUrlDataTest {
     public void testDifferentYear() {
         process();
         tour.year = VALID_YEAR - 1;
-        assertNotNull(entity);
-        assertFalse(sourceEntity.equals(entity));
+        testEntitiesNotEqual();
     }
 }

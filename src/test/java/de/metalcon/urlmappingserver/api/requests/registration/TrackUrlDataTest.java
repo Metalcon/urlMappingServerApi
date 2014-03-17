@@ -1,8 +1,5 @@
 package de.metalcon.urlmappingserver.api.requests.registration;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotNull;
-
 import org.junit.Before;
 import org.junit.Test;
 
@@ -46,15 +43,13 @@ public class TrackUrlDataTest extends EntityUrlDataTest {
                         VALID_RECORD.getMuid().getValue() + 10),
                         VALID_RECORD.getName(), VALID_RECORD.getBand(),
                         VALID_RECORD.getReleaseYear());
-        assertNotNull(entity);
-        assertFalse(sourceEntity.equals(entity));
+        testEntitiesNotEqual();
     }
 
     @Test
     public void testDifferentTrackNumber() {
         process();
         track.trackNumber = VALID_TRACK_NUMBER - 1;
-        assertNotNull(entity);
-        assertFalse(sourceEntity.equals(entity));
+        testEntitiesNotEqual();
     }
 }

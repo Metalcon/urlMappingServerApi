@@ -1,8 +1,5 @@
 package de.metalcon.urlmappingserver.api.requests.registration;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotNull;
-
 import org.junit.Before;
 import org.junit.Test;
 
@@ -38,15 +35,13 @@ public class UserUrlDataTest extends EntityUrlDataTest {
     public void testDifferentFirstName() {
         process();
         user.firstName = VALID_FIRST_NAME + VALID_LAST_NAME;
-        assertNotNull(entity);
-        assertFalse(sourceEntity.equals(entity));
+        testEntitiesNotEqual();
     }
 
     @Test
     public void testDifferentLastName() {
         process();
         user.lastName = VALID_LAST_NAME + VALID_FIRST_NAME;
-        assertNotNull(entity);
-        assertFalse(sourceEntity.equals(entity));
+        testEntitiesNotEqual();
     }
 }
