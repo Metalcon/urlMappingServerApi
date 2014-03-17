@@ -10,6 +10,13 @@ public class TourUrlData extends EntityUrlData {
 
     protected int year;
 
+    /**
+     * 
+     * @param muid
+     * @param name
+     * @param year
+     *            may be zero
+     */
     public TourUrlData(
             Muid muid,
             String name,
