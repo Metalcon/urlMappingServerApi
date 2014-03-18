@@ -5,9 +5,9 @@ import org.json.simple.JSONObject;
 import de.metalcon.domain.EntityType;
 import de.metalcon.domain.Muid;
 import de.metalcon.urlmappingserver.api.ZeroMQSerialization;
-import de.metalcon.urlmappingserver.api.requests.Request;
+import de.metalcon.urlmappingserver.api.requests.UrlMappingRequest;
 
-public abstract class EntityUrlData extends Request {
+public abstract class EntityUrlData extends UrlMappingRequest {
 
     protected Muid muid;
 
