@@ -12,6 +12,15 @@ public class TrackUrlData extends EntityUrlData {
 
     protected int trackNumber;
 
+    /**
+     * 
+     * @param muid
+     * @param name
+     * @param record
+     *            may be null
+     * @param trackNumber
+     *            may be zero
+     */
     public TrackUrlData(
             Muid muid,
             String name,
