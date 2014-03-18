@@ -10,6 +10,13 @@ public class VenueUrlData extends EntityUrlData {
 
     protected CityUrlData city;
 
+    /**
+     * 
+     * @param muid
+     * @param name
+     * @param city
+     *            may be null
+     */
     public VenueUrlData(
             Muid muid,
             String name,

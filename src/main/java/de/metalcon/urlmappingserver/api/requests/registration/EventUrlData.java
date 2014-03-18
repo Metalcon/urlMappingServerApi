@@ -21,9 +21,11 @@ public class EventUrlData extends EntityUrlData {
      * @param muid
      * @param name
      * @param date
-     *            milliseconds will be ignored
+     *            first event date (milliseconds will be ignored), may be null
      * @param city
+     *            may be null
      * @param venue
+     *            may be null
      */
     public EventUrlData(
             Muid muid,
