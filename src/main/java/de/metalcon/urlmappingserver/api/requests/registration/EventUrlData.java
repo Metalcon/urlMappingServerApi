@@ -44,7 +44,7 @@ public class EventUrlData extends EntityUrlData {
      * @param city
      *            city the event is located in<br>
      *            may be <b>null</b><br>
-     *            if <b>null</b> the city of the venue will be returned, if
+     *            if <b>null</b> the city of the venue is taken, if
      *            venue was set
      * @param venue
      *            venue the event is located in<br>
