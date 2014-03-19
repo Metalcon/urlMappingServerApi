@@ -8,6 +8,8 @@ import de.metalcon.urlmappingserver.api.ZeroMQSerialization;
 
 public class TrackUrlData extends EntityUrlData {
 
+    private static final long serialVersionUID = 4829309992842372145L;
+
     protected RecordUrlData record;
 
     protected int trackNumber;

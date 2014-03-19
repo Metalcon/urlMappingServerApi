@@ -1,13 +1,16 @@
 package de.metalcon.urlmappingserver.api.requests.registration;
 
+import java.io.Serializable;
+
 import org.json.simple.JSONObject;
 
 import de.metalcon.domain.EntityType;
 import de.metalcon.domain.Muid;
 import de.metalcon.urlmappingserver.api.ZeroMQSerialization;
-import de.metalcon.urlmappingserver.api.requests.UrlMappingRequest;
 
-public abstract class EntityUrlData extends UrlMappingRequest {
+public abstract class EntityUrlData implements Serializable {
+
+    private static final long serialVersionUID = -4401073729083016529L;
 
     protected Muid muid;
 

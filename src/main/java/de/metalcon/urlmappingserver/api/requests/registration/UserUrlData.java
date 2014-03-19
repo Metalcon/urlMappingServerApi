@@ -8,6 +8,8 @@ import de.metalcon.urlmappingserver.api.ZeroMQSerialization;
 
 public class UserUrlData extends EntityUrlData {
 
+    private static final long serialVersionUID = 4505905094818111661L;
+
     protected String firstName;
 
     protected String lastName;

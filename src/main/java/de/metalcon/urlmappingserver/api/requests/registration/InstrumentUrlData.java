@@ -7,6 +7,8 @@ import de.metalcon.domain.Muid;
 
 public class InstrumentUrlData extends EntityUrlData {
 
+    private static final long serialVersionUID = -2932460810703329508L;
+
     public InstrumentUrlData(
             Muid muid,
             String name) {

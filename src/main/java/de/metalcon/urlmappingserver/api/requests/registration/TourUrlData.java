@@ -8,6 +8,8 @@ import de.metalcon.urlmappingserver.api.ZeroMQSerialization;
 
 public class TourUrlData extends EntityUrlData {
 
+    private static final long serialVersionUID = -1667464688180293594L;
+
     protected int year;
 
     /**
