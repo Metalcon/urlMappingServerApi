@@ -25,6 +25,10 @@ public class UrlMappingRegistrationRequest extends UrlMappingRequest {
      */
     public UrlMappingRegistrationRequest(
             EntityUrlData urlData) {
+        if (urlData == null) {
+            throw new IllegalArgumentException("url data must not be null");
+        }
+
         this.urlData = urlData;
     }
 

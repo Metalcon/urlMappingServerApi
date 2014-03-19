@@ -35,6 +35,13 @@ public class UrlMappingResolveRequest extends UrlMappingRequest {
     public UrlMappingResolveRequest(
             Map<String, String> urlPathVars,
             EntityType entityType) {
+        if (urlPathVars == null) {
+            throw new IllegalArgumentException("url path vars must not be null");
+        }
+        if (entityType == null) {
+            throw new IllegalArgumentException("entity type must not be null");
+        }
+
         this.urlPathVars = urlPathVars;
         this.entityType = entityType;
     }

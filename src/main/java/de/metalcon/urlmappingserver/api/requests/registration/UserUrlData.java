@@ -37,6 +37,14 @@ public class UserUrlData extends EntityUrlData {
             String firstName,
             String lastName) {
         super(muid, concatNames(firstName, lastName));
+
+        if (firstName == null) {
+            throw new IllegalArgumentException("first name must not be null");
+        }
+        if (lastName == null) {
+            throw new IllegalArgumentException("last name must not be null");
+        }
+
         this.firstName = firstName;
         this.lastName = lastName;
     }

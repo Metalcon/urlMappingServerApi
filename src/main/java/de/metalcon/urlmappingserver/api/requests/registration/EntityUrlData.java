@@ -35,6 +35,13 @@ public abstract class EntityUrlData implements Serializable {
     public EntityUrlData(
             Muid muid,
             String name) {
+        if (muid == null) {
+            throw new IllegalArgumentException("muid must not be null");
+        }
+        if (name == null) {
+            throw new IllegalArgumentException("name must not be null");
+        }
+
         this.muid = muid;
         this.name = name;
     }
