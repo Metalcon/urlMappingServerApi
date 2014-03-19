@@ -6,7 +6,6 @@ import org.json.simple.JSONObject;
 
 import de.metalcon.domain.EntityType;
 import de.metalcon.domain.Muid;
-import de.metalcon.urlmappingserver.api.ZeroMQSerialization;
 
 public abstract class EntityUrlData implements Serializable {
 
@@ -29,6 +28,19 @@ public abstract class EntityUrlData implements Serializable {
 
     public String getName() {
         return name;
+    }
+
+    /**
+     * concatenate human readable names
+     * 
+     * @param firstName
+     *            first name
+     * @param lastName
+     *            last name
+     * @return human readable full name
+     */
+    public static String concatNames(String firstName, String lastName) {
+        return firstName + " " + lastName;
     }
 
     @Override
