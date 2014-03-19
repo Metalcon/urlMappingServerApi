@@ -1,23 +1,33 @@
 package de.metalcon.urlmappingserver.api.requests.registration;
 
-import org.json.simple.JSONObject;
-
-import de.metalcon.domain.EntityType;
 import de.metalcon.domain.Muid;
-import de.metalcon.urlmappingserver.api.ZeroMQSerialization;
 
+/**
+ * URL information for venue entities
+ * 
+ * @author sebschlicht
+ * 
+ */
 public class VenueUrlData extends EntityUrlData {
 
     private static final long serialVersionUID = 4882678233111916935L;
 
+    /**
+     * city the venue is located in<br>
+     * may be <b>null</b>: unknown
+     */
     protected CityUrlData city;
 
     /**
+     * create venue URL information
      * 
      * @param muid
+     *            venue ID
      * @param name
+     *            venue name
      * @param city
-     *            may be null
+     *            city the venue is located in<br>
+     *            may be <b>null</b>
      */
     public VenueUrlData(
             Muid muid,
@@ -27,50 +37,12 @@ public class VenueUrlData extends EntityUrlData {
         this.city = city;
     }
 
+    /**
+     * @return city the venue is located in<br>
+     *         may be <b>null</b>
+     */
     public CityUrlData getCity() {
         return city;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (super.equals(o)) {
-            VenueUrlData v = (VenueUrlData) o;
-            return getCity().equals(v.getCity());
-        }
-        return false;
-    }
-
-    public static String serialize(VenueUrlData venue) {
-        return serializeVenueToJson(venue).toJSONString();
-    }
-
-    @SuppressWarnings("unchecked")
-    static JSONObject serializeVenueToJson(VenueUrlData venue) {
-        JSONObject object = EntityUrlData.serializeEntityToJson(venue);
-        object.put(RegistrationRequestSerialization.Venue.CITY,
-                CityUrlData.serializeEntityToJson(venue.getCity()));
-        return object;
-    }
-
-    protected static CityUrlData deserializeCityUrlData(JSONObject venue) {
-        return CityUrlData.deserialize(ZeroMQSerialization.Helper.getObject(
-                RegistrationRequestSerialization.Venue.CITY, venue));
-    }
-
-    public static VenueUrlData deserialize(JSONObject venue) {
-        return deserialize(venue, null);
-    }
-
-    public static VenueUrlData deserialize(
-            JSONObject venue,
-            Muid deserializedMuid) {
-        if (deserializedMuid == null) {
-            deserializedMuid = deserializeMuid(venue, EntityType.VENUE);
-        }
-        String name = deserializeName(venue);
-        CityUrlData city = deserializeCityUrlData(venue);
-
-        return new VenueUrlData(deserializedMuid, name, city);
     }
 
 }
