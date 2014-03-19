@@ -33,9 +33,12 @@ public class EventUrlData extends EntityUrlData {
     protected VenueUrlData venue;
 
     /**
+     * create event URL information
      * 
      * @param muid
+     *            event ID
      * @param name
+     *            event name
      * @param date
      *            first event date (milliseconds will be ignored), may be null
      * @param city
