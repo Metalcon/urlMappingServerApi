@@ -1,31 +1,29 @@
 package de.metalcon.urlmappingserver.api.requests.registration;
 
-import org.json.simple.JSONObject;
-
-import de.metalcon.domain.EntityType;
 import de.metalcon.domain.Muid;
 
+/**
+ * URL information for band entities
+ * 
+ * @author sebschlicht
+ * 
+ */
 public class BandUrlData extends EntityUrlData {
 
     private static final long serialVersionUID = -7235814801174019771L;
 
+    /**
+     * create band URL information
+     * 
+     * @param muid
+     *            band ID
+     * @param name
+     *            band name
+     */
     public BandUrlData(
             Muid muid,
             String name) {
         super(muid, name);
     }
 
-    public static BandUrlData deserialize(JSONObject band) {
-        return deserialize(band, null);
-    }
-
-    public static BandUrlData
-        deserialize(JSONObject band, Muid deserializedMuid) {
-        if (deserializedMuid == null) {
-            deserializedMuid = deserializeMuid(band, EntityType.BAND);
-        }
-        String name = deserializeName(band);
-
-        return new BandUrlData(deserializedMuid, name);
-    }
 }

@@ -1,26 +1,41 @@
 package de.metalcon.urlmappingserver.api.requests.registration;
 
-import org.json.simple.JSONObject;
-
-import de.metalcon.domain.EntityType;
 import de.metalcon.domain.Muid;
-import de.metalcon.urlmappingserver.api.ZeroMQSerialization;
 
+/**
+ * URL information for record entities
+ * 
+ * @author sebschlicht
+ * 
+ */
 public class RecordUrlData extends EntityUrlData {
 
     private static final long serialVersionUID = -2288914572869215389L;
 
+    /**
+     * band that released the record<br>
+     * may be <b>null</b>: multiple bands, unknown
+     */
     protected BandUrlData band;
 
+    /**
+     * release year<br>
+     * may be zero
+     */
     protected int releaseYear;
 
     /**
+     * create record URL information
      * 
      * @param muid
+     *            record ID
      * @param name
+     *            record name
      * @param band
-     *            may be null if not clear
+     *            band that released the record<br>
+     *            may be <b>null</b>
      * @param releaseYear
+     *            release year<br>
      *            may be zero
      */
     public RecordUrlData(
@@ -33,63 +48,20 @@ public class RecordUrlData extends EntityUrlData {
         this.releaseYear = releaseYear;
     }
 
+    /**
+     * @return band that released the record<br>
+     *         may be <b>null</b>: multiple bands, unknown
+     */
     public BandUrlData getBand() {
         return band;
     }
 
+    /**
+     * @return release year<br>
+     *         may be zero
+     */
     public int getReleaseYear() {
         return releaseYear;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (super.equals(o)) {
-            RecordUrlData r = (RecordUrlData) o;
-            return getBand().equals(r.getBand())
-                    && getReleaseYear() == r.getReleaseYear();
-        }
-        return false;
-    }
-
-    public static String serialize(RecordUrlData record) {
-        return serializeRecordToJson(record).toJSONString();
-    }
-
-    @SuppressWarnings("unchecked")
-    static JSONObject serializeRecordToJson(RecordUrlData record) {
-        JSONObject object = EntityUrlData.serializeEntityToJson(record);
-        object.put(RegistrationRequestSerialization.Record.BAND,
-                BandUrlData.serializeEntityToJson(record.getBand()));
-        object.put(RegistrationRequestSerialization.Record.RELEASE_YEAR,
-                record.getReleaseYear());
-        return object;
-    }
-
-    protected static BandUrlData deserializeBandUrlData(JSONObject record) {
-        return BandUrlData.deserialize(ZeroMQSerialization.Helper.getObject(
-                RegistrationRequestSerialization.Record.BAND, record));
-    }
-
-    protected static int deserializeReleaseYear(JSONObject record) {
-        return ZeroMQSerialization.Helper.getInteger(
-                RegistrationRequestSerialization.Record.RELEASE_YEAR, record);
-    }
-
-    public static RecordUrlData deserialize(JSONObject record) {
-        return deserialize(record, null);
-    }
-
-    public static RecordUrlData deserialize(
-            JSONObject record,
-            Muid deserializedMuid) {
-        if (deserializedMuid == null) {
-            deserializedMuid = deserializeMuid(record, EntityType.RECORD);
-        }
-        String name = deserializeName(record);
-        BandUrlData band = deserializeBandUrlData(record);
-        int releaseYear = deserializeReleaseYear(record);
-
-        return new RecordUrlData(deserializedMuid, name, band, releaseYear);
     }
 
 }

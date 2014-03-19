@@ -2,32 +2,53 @@ package de.metalcon.urlmappingserver.api.requests.registration;
 
 import java.util.Date;
 
-import org.json.simple.JSONObject;
-
-import de.metalcon.domain.EntityType;
 import de.metalcon.domain.Muid;
-import de.metalcon.urlmappingserver.api.ZeroMQSerialization;
 
+/**
+ * URL information for event entities
+ * 
+ * @author sebschlicht
+ * 
+ */
 public class EventUrlData extends EntityUrlData {
 
     private static final long serialVersionUID = -3249109237520805058L;
 
+    /**
+     * first event date<br>
+     * may be <b>null</b>: unknown
+     */
     protected Date date;
 
+    /**
+     * city the event is located in<br>
+     * may be <b>null</b>: venue set, unknown
+     */
     protected CityUrlData city;
 
+    /**
+     * venue the event is located in<br>
+     * may be <b>null</b>: unknown
+     */
     protected VenueUrlData venue;
 
     /**
+     * create event URL information
      * 
      * @param muid
+     *            event ID
      * @param name
+     *            event name
      * @param date
      *            first event date (milliseconds will be ignored), may be null
      * @param city
-     *            may be null
+     *            city the event is located in<br>
+     *            may be <b>null</b><br>
+     *            if <b>null</b> the city of the venue is taken, if
+     *            venue was set
      * @param venue
-     *            may be null
+     *            venue the event is located in<br>
+     *            may be <b>null</b>
      */
     public EventUrlData(
             Muid muid,
@@ -41,77 +62,31 @@ public class EventUrlData extends EntityUrlData {
         this.venue = venue;
     }
 
+    /**
+     * @return first event date<br>
+     *         may be <b>null</b>: unknown
+     */
     public Date getDate() {
         return date;
     }
 
+    /**
+     * @return city the event is located in<br>
+     *         may be <b>null</b>
+     */
     public CityUrlData getCity() {
+        if (city == null && venue != null) {
+            return venue.getCity();
+        }
         return city;
     }
 
+    /**
+     * @return venue the event is located in<br>
+     *         may be <b>null</b>
+     */
     public VenueUrlData getVenue() {
         return venue;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (super.equals(o)) {
-            EventUrlData e = (EventUrlData) o;
-
-            return getDate().equals(e.getDate())
-                    && getCity().equals(e.getCity())
-                    && getVenue().equals(e.getVenue());
-        }
-        return false;
-    }
-
-    public static String serialize(EventUrlData event) {
-        return serializeEventToJson(event).toJSONString();
-    }
-
-    @SuppressWarnings("unchecked")
-    static JSONObject serializeEventToJson(EventUrlData event) {
-        JSONObject object = EntityUrlData.serializeEntityToJson(event);
-        object.put(RegistrationRequestSerialization.Event.DATE,
-                ZeroMQSerialization.Helper.parseDate(event.getDate()));
-        object.put(RegistrationRequestSerialization.Event.CITY,
-                CityUrlData.serializeEntityToJson(event.getCity()));
-        object.put(RegistrationRequestSerialization.Event.VENUE,
-                VenueUrlData.serializeVenueToJson(event.getVenue()));
-        return object;
-    }
-
-    protected static Date deserializeDate(JSONObject event) {
-        return ZeroMQSerialization.Helper.getDate(
-                RegistrationRequestSerialization.Event.DATE, event);
-    }
-
-    protected static CityUrlData deserializeCityUrlData(JSONObject event) {
-        return CityUrlData.deserialize(ZeroMQSerialization.Helper.getObject(
-                RegistrationRequestSerialization.Event.CITY, event));
-    }
-
-    protected static VenueUrlData deserializeVenueUrlData(JSONObject event) {
-        return VenueUrlData.deserialize(ZeroMQSerialization.Helper.getObject(
-                RegistrationRequestSerialization.Event.VENUE, event));
-    }
-
-    public static EventUrlData deserialize(JSONObject event) {
-        return deserialize(event, null);
-    }
-
-    public static EventUrlData deserialize(
-            JSONObject event,
-            Muid deserializedMuid) {
-        if (deserializedMuid == null) {
-            deserializedMuid = deserializeMuid(event, EntityType.EVENT);
-        }
-        String name = deserializeName(event);
-        Date date = deserializeDate(event);
-        CityUrlData city = deserializeCityUrlData(event);
-        VenueUrlData venue = deserializeVenueUrlData(event);
-
-        return new EventUrlData(deserializedMuid, name, date, city, venue);
     }
 
 }

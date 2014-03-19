@@ -1,19 +1,37 @@
 package de.metalcon.urlmappingserver.api.requests.registration;
 
-import org.json.simple.JSONObject;
-
-import de.metalcon.domain.EntityType;
 import de.metalcon.domain.Muid;
-import de.metalcon.urlmappingserver.api.ZeroMQSerialization;
 
+/**
+ * URL information for user entities
+ * 
+ * @author sebschlicht
+ * 
+ */
 public class UserUrlData extends EntityUrlData {
 
     private static final long serialVersionUID = 4505905094818111661L;
 
+    /**
+     * user's first name
+     */
     protected String firstName;
 
+    /**
+     * user's last name
+     */
     protected String lastName;
 
+    /**
+     * create user URL information
+     * 
+     * @param muid
+     *            user ID
+     * @param firstName
+     *            user's first name
+     * @param lastName
+     *            user's last name
+     */
     public UserUrlData(
             Muid muid,
             String firstName,
@@ -23,65 +41,18 @@ public class UserUrlData extends EntityUrlData {
         this.lastName = lastName;
     }
 
+    /**
+     * @return user's first name
+     */
     public String getFirstName() {
         return firstName;
     }
 
+    /**
+     * @return user's last name
+     */
     public String getLastName() {
         return lastName;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (super.equals(o)) {
-            UserUrlData u = (UserUrlData) o;
-            return getFirstName().equals(u.getFirstName())
-                    && getLastName().equals(u.getLastName());
-        }
-        return false;
-    }
-
-    public static String concatNames(String firstName, String lastName) {
-        return firstName + " " + lastName;
-    }
-
-    public static String serialize(UserUrlData user) {
-        return serializeUserToJson(user).toJSONString();
-    }
-
-    @SuppressWarnings("unchecked")
-    static JSONObject serializeUserToJson(UserUrlData user) {
-        JSONObject object = EntityUrlData.serializeEntityToJson(user);
-        object.put(RegistrationRequestSerialization.User.FIRST_NAME,
-                user.getFirstName());
-        object.put(RegistrationRequestSerialization.User.LAST_NAME,
-                user.getLastName());
-        return object;
-    }
-
-    protected static String deserializeFirstName(JSONObject user) {
-        return ZeroMQSerialization.Helper.getString(
-                RegistrationRequestSerialization.User.FIRST_NAME, user);
-    }
-
-    protected static String deserializeLastName(JSONObject user) {
-        return ZeroMQSerialization.Helper.getString(
-                RegistrationRequestSerialization.User.LAST_NAME, user);
-    }
-
-    public static UserUrlData deserialize(JSONObject user) {
-        return deserialize(user, null);
-    }
-
-    public static UserUrlData
-        deserialize(JSONObject user, Muid deserializedMuid) {
-        if (deserializedMuid == null) {
-            deserializedMuid = deserializeMuid(user, EntityType.USER);
-        }
-        String firstName = deserializeFirstName(user);
-        String lastName = deserializeLastName(user);
-
-        return new UserUrlData(deserializedMuid, firstName, lastName);
     }
 
 }
