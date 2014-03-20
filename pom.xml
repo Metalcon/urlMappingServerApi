@@ -30,7 +30,9 @@
     <!-- version of JSON -->
     <json.version>1.1</json.version>
     <!-- version of Metalcon domain -->
-    <muid.version>0.0.1-SNAPSHOT</muid.version>
+    <metalcon.muid.version>0.0.1-SNAPSHOT</metalcon.muid.version>
+    <!-- version of Metalcon API -->
+    <metalcon.api.version>0.0.1-SNAPSHOT</metalcon.api.version>
   </properties>
 
   <dependencies>
@@ -40,7 +42,7 @@
       <version>${junit.version}</version>
       <scope>test</scope>
     </dependency>
-    
+
     <dependency>
       <groupId>com.googlecode.json-simple</groupId>
       <artifactId>json-simple</artifactId>
@@ -49,12 +51,18 @@
     <dependency>
       <groupId>de.metalcon</groupId>
       <artifactId>muid</artifactId>
-      <version>${muid.version}</version>
+      <version>${metalcon.muid.version}</version>
     </dependency>
     <dependency>
       <groupId>com.googlecode.json-simple</groupId>
       <artifactId>json-simple</artifactId>
       <version>1.1</version>
+    </dependency>
+    <!-- basic Metalcon API holding requests/responses -->
+    <dependency>
+      <groupId>de.metalcon</groupId>
+      <artifactId>api</artifactId>
+      <version>${metalcon.api.version}</version>
     </dependency>
   </dependencies>
 </project>
