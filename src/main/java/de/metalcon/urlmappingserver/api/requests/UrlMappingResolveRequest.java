@@ -2,7 +2,7 @@ package de.metalcon.urlmappingserver.api.requests;
 
 import java.util.Map;
 
-import de.metalcon.domain.EntityType;
+import de.metalcon.domain.MuidType;
 
 /**
  * request: resolve URL to MUID
@@ -22,28 +22,28 @@ public class UrlMappingResolveRequest extends UrlMappingRequest {
     /**
      * type of the entity to resolve
      */
-    private EntityType entityType;
+    private MuidType muidType;
 
     /**
      * create URL mapping resolve request
      * 
      * @param urlPathVars
      *            path variables in URL
-     * @param entityType
+     * @param muidType
      *            type of the entity to resolve
      */
     public UrlMappingResolveRequest(
             Map<String, String> urlPathVars,
-            EntityType entityType) {
+            MuidType muidType) {
         if (urlPathVars == null) {
             throw new IllegalArgumentException("url path vars must not be null");
         }
-        if (entityType == null) {
+        if (muidType == null) {
             throw new IllegalArgumentException("entity type must not be null");
         }
 
         this.urlPathVars = urlPathVars;
-        this.entityType = entityType;
+        this.muidType = muidType;
     }
 
     /**
@@ -56,8 +56,8 @@ public class UrlMappingResolveRequest extends UrlMappingRequest {
     /**
      * @return type of the entity to resolve
      */
-    public EntityType getEntityType() {
-        return entityType;
+    public MuidType getMuidType() {
+        return muidType;
     }
 
 }
