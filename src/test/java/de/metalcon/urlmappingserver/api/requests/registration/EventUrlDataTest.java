@@ -36,7 +36,7 @@ public class EventUrlDataTest extends EntityUrlDataTest {
     }
 
     @Override
-    public void testMuidValid() {
+    public void testEntityFull() {
         event =
                 new EventUrlData(VALID_MUID, VALID_NAME, VALID_DATE,
                         VALID_CITY, VALID_VENUE);
@@ -85,7 +85,7 @@ public class EventUrlDataTest extends EntityUrlDataTest {
                         VALID_VENUE);
         testEntityValid(event);
         assertEquals(VALID_DATE, event.getDate());
-        assertEquals(VALID_CITY, event.getCity());
+        assertEquals(VALID_VENUE.getCity(), event.getCity());
         assertEquals(VALID_VENUE, event.getVenue());
     }
 

@@ -31,7 +31,7 @@ public class TrackUrlDataTest extends EntityUrlDataTest {
     }
 
     @Override
-    public void testMuidValid() {
+    public void testEntityFull() {
         track =
                 new TrackUrlData(VALID_MUID, VALID_NAME, VALID_BAND,
                         VALID_RECORD, VALID_TRACK_NUMBER);
@@ -67,7 +67,8 @@ public class TrackUrlDataTest extends EntityUrlDataTest {
         track =
                 new TrackUrlData(VALID_MUID, VALID_NAME, null, VALID_RECORD,
                         VALID_TRACK_NUMBER);
-        assertEquals(VALID_BAND, track.getBand());
+        testEntityValid(track);
+        assertEquals(VALID_RECORD.getBand(), track.getBand());
         assertEquals(VALID_RECORD, track.getRecord());
         assertEquals(VALID_TRACK_NUMBER, track.getTrackNumber());
     }
@@ -77,6 +78,7 @@ public class TrackUrlDataTest extends EntityUrlDataTest {
         track =
                 new TrackUrlData(VALID_MUID, VALID_NAME, null, null,
                         VALID_TRACK_NUMBER);
+        testEntityValid(track);
         assertNull(track.getBand());
         assertNull(track.getRecord());
         assertEquals(VALID_TRACK_NUMBER, track.getTrackNumber());
@@ -87,6 +89,7 @@ public class TrackUrlDataTest extends EntityUrlDataTest {
         track =
                 new TrackUrlData(VALID_MUID, VALID_NAME, null,
                         VALID_RECORD_WITHOUT_BAND, VALID_TRACK_NUMBER);
+        testEntityValid(track);
         assertNull(track.getBand());
         assertEquals(VALID_RECORD_WITHOUT_BAND, track.getRecord());
         assertEquals(VALID_TRACK_NUMBER, track.getTrackNumber());
@@ -97,6 +100,7 @@ public class TrackUrlDataTest extends EntityUrlDataTest {
         track =
                 new TrackUrlData(VALID_MUID, VALID_NAME, VALID_BAND, null,
                         VALID_TRACK_NUMBER);
+        testEntityValid(track);
         assertEquals(VALID_BAND, track.getBand());
         assertNull(track.getRecord());
         assertEquals(VALID_TRACK_NUMBER, track.getTrackNumber());
@@ -107,9 +111,21 @@ public class TrackUrlDataTest extends EntityUrlDataTest {
         track =
                 new TrackUrlData(VALID_MUID, VALID_NAME, VALID_BAND,
                         VALID_RECORD_WITHOUT_BAND, VALID_TRACK_NUMBER);
+        testEntityValid(track);
         assertEquals(VALID_BAND, track.getBand());
         assertEquals(VALID_RECORD_WITHOUT_BAND, track.getRecord());
         assertEquals(VALID_TRACK_NUMBER, track.getTrackNumber());
+    }
+
+    @Test
+    public void testTrackNumberZero() {
+        track =
+                new TrackUrlData(VALID_MUID, VALID_NAME, VALID_BAND,
+                        VALID_RECORD, 0);
+        testEntityValid(track);
+        assertEquals(VALID_BAND, track.getBand());
+        assertEquals(VALID_RECORD, track.getRecord());
+        assertEquals(0, track.getTrackNumber());
     }
 
 }

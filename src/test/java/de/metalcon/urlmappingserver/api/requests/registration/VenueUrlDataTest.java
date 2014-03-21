@@ -11,7 +11,8 @@ import de.metalcon.domain.MuidType;
 
 public class VenueUrlDataTest extends EntityUrlDataTest {
 
-    protected static final CityUrlData VALID_CITY = CityUrlDataTest.VALID_CITY;
+    protected static final CityUrlData VALID_CITY = new CityUrlData(
+            Muid.create(MuidType.CITY), CityUrlDataTest.VALID_CITY.getName());
 
     public static final VenueUrlData VALID_VENUE = new VenueUrlData(
             Muid.create(MuidType.VENUE), VALID_NAME, VALID_CITY);
@@ -25,7 +26,7 @@ public class VenueUrlDataTest extends EntityUrlDataTest {
     }
 
     @Override
-    public void testMuidValid() {
+    public void testEntityFull() {
         venue = new VenueUrlData(VALID_MUID, VALID_NAME, VALID_CITY);
         testEntityValid(venue);
         assertEquals(VALID_CITY, venue.getCity());

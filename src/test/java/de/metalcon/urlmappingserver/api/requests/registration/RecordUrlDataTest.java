@@ -11,7 +11,8 @@ import de.metalcon.domain.MuidType;
 
 public class RecordUrlDataTest extends EntityUrlDataTest {
 
-    protected static final BandUrlData VALID_BAND = BandUrlDataTest.VALID_BAND;
+    protected static final BandUrlData VALID_BAND = new BandUrlData(
+            Muid.create(MuidType.BAND), BandUrlDataTest.VALID_BAND.getName());
 
     protected static final int VALID_RELEASE_YEAR = 2014;
 
@@ -28,7 +29,7 @@ public class RecordUrlDataTest extends EntityUrlDataTest {
     }
 
     @Override
-    public void testMuidValid() {
+    public void testEntityFull() {
         record =
                 new RecordUrlData(VALID_MUID, VALID_NAME, VALID_BAND,
                         VALID_RELEASE_YEAR);

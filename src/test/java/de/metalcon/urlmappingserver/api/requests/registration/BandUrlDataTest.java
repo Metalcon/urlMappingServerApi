@@ -19,7 +19,7 @@ public class BandUrlDataTest extends EntityUrlDataTest {
     }
 
     @Override
-    public void testMuidValid() {
+    public void testEntityFull() {
         band = new BandUrlData(VALID_MUID, VALID_NAME);
         testEntityValid(band);
     }

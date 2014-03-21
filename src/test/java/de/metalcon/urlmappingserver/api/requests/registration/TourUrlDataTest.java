@@ -20,7 +20,7 @@ public class TourUrlDataTest extends EntityUrlDataTest {
     }
 
     @Override
-    public void testMuidValid() {
+    public void testEntityFull() {
         tour = new TourUrlData(VALID_MUID, VALID_NAME, VALID_YEAR);
         testEntityValid(tour);
         assertEquals(VALID_YEAR, tour.getYear());

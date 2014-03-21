@@ -25,7 +25,7 @@ public class UserUrlDataTest extends EntityUrlDataTest {
     }
 
     @Override
-    public void testMuidValid() {
+    public void testEntityFull() {
         user = new UserUrlData(VALID_MUID, VALID_NAME, VALID_LAST_NAME);
         testEntityValid(user);
         assertEquals(VALID_NAME, user.getFirstName());

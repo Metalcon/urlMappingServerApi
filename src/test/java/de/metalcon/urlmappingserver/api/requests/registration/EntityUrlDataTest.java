@@ -38,7 +38,7 @@ public abstract class EntityUrlDataTest {
     }
 
     @Test
-    public abstract void testMuidValid();
+    public abstract void testEntityFull();
 
     @Test(
             expected = IllegalArgumentException.class)
