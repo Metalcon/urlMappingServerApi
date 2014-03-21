@@ -1,6 +1,7 @@
 package de.metalcon.urlmappingserver.api.requests.registration;
 
 import de.metalcon.domain.Muid;
+import de.metalcon.domain.MuidType;
 
 /**
  * URL information for tour entities
@@ -33,7 +34,7 @@ public class TourUrlData extends EntityUrlData {
             Muid muid,
             String name,
             int year) {
-        super(muid, name);
+        super(MuidType.RECORD, muid, name);
         this.year = year;
     }
 

@@ -3,6 +3,7 @@ package de.metalcon.urlmappingserver.api.requests.registration;
 import java.io.Serializable;
 
 import de.metalcon.domain.Muid;
+import de.metalcon.domain.MuidType;
 
 /**
  * basic URL information for entities
@@ -27,16 +28,25 @@ public abstract class EntityUrlData implements Serializable {
     /**
      * create basic entity URL information
      * 
+     * @param muidType
+     *            MUID type the URL information is for
      * @param muid
      *            entity MUID
      * @param name
      *            entity name
+     * @throws IllegalArgumentException
+     *             if MUID or name <b>null</b> or MUID type mismatching
      */
     public EntityUrlData(
+            MuidType muidType,
             Muid muid,
             String name) {
         if (muid == null) {
-            throw new IllegalArgumentException("muid must not be null");
+            throw new IllegalArgumentException("MUID must not be null");
+        }
+        if (muid.getMuidType() != muidType) {
+            throw new IllegalArgumentException("MUID type must be \""
+                    + muidType + "\" (was \"" + muid.getMuidType() + "\")");
         }
         if (name == null) {
             throw new IllegalArgumentException("name must not be null");

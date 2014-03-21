@@ -3,6 +3,7 @@ package de.metalcon.urlmappingserver.api.requests.registration;
 import java.util.Date;
 
 import de.metalcon.domain.Muid;
+import de.metalcon.domain.MuidType;
 
 /**
  * URL information for event entities
@@ -56,8 +57,10 @@ public class EventUrlData extends EntityUrlData {
             Date date,
             CityUrlData city,
             VenueUrlData venue) {
-        super(muid, name);
-        this.date = new Date(date.getTime() - date.getTime() % 1000);
+        super(MuidType.EVENT, muid, name);
+        this.date =
+                (date != null) ? new Date(date.getTime() - date.getTime()
+                        % 1000) : null;
         this.city = city;
         this.venue = venue;
     }
