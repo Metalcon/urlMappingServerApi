@@ -21,10 +21,6 @@ public class EventUrlDataTest extends EntityUrlDataTest {
     protected static final VenueUrlData VALID_VENUE =
             VenueUrlDataTest.VALID_VENUE;
 
-    public static final EventUrlData VALID_EVENT = new EventUrlData(
-            Muid.create(MuidType.EVENT), VALID_NAME, VALID_DATE, VALID_CITY,
-            VALID_VENUE);
-
     protected EventUrlData event;
 
     @BeforeClass
