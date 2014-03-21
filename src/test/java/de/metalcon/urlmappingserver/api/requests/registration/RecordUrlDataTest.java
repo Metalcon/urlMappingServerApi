@@ -3,8 +3,6 @@ package de.metalcon.urlmappingserver.api.requests.registration;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
 
-import java.util.Calendar;
-
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -15,8 +13,7 @@ public class RecordUrlDataTest extends EntityUrlDataTest {
 
     protected static final BandUrlData VALID_BAND = BandUrlDataTest.VALID_BAND;
 
-    protected static final int VALID_RELEASE_YEAR = Calendar.getInstance().get(
-            Calendar.YEAR);
+    protected static final int VALID_RELEASE_YEAR = 2014;
 
     public static final RecordUrlData VALID_RECORD = new RecordUrlData(
             Muid.create(MuidType.RECORD), VALID_NAME, VALID_BAND,

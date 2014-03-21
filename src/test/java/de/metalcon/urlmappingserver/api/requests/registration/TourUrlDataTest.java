@@ -2,8 +2,6 @@ package de.metalcon.urlmappingserver.api.requests.registration;
 
 import static org.junit.Assert.assertEquals;
 
-import java.util.Calendar;
-
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -11,8 +9,7 @@ import de.metalcon.domain.MuidType;
 
 public class TourUrlDataTest extends EntityUrlDataTest {
 
-    protected static final int VALID_YEAR = Calendar.getInstance().get(
-            Calendar.YEAR);
+    protected static final int VALID_YEAR = 2014;
 
     protected TourUrlData tour;
 

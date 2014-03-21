@@ -23,6 +23,10 @@ public class EventUrlDataTest extends EntityUrlDataTest {
     protected static final VenueUrlData VALID_VENUE =
             VenueUrlDataTest.VALID_VENUE;
 
+    protected static final VenueUrlData VALID_VENUE_WITHOUR_CITY =
+            new VenueUrlData(Muid.create(MuidType.VENUE),
+                    VALID_VENUE.getName(), null);
+
     protected EventUrlData event;
 
     @BeforeClass
@@ -97,15 +101,13 @@ public class EventUrlDataTest extends EntityUrlDataTest {
 
     @Test
     public void testCityNullVenueWithoutCity() {
-        VenueUrlData venueWithoutCity =
-                new VenueUrlData(Muid.create(MuidType.VENUE), VALID_NAME, null);
         event =
                 new EventUrlData(VALID_MUID, VALID_NAME, VALID_DATE, null,
-                        venueWithoutCity);
+                        VALID_VENUE_WITHOUR_CITY);
         testEntityValid(event);
         assertEquals(VALID_DATE, event.getDate());
         assertNull(event.getCity());
-        assertEquals(venueWithoutCity, event.getVenue());
+        assertEquals(VALID_VENUE_WITHOUR_CITY, event.getVenue());
     }
 
     @Test
@@ -121,15 +123,13 @@ public class EventUrlDataTest extends EntityUrlDataTest {
 
     @Test
     public void testVenueWithoutCity() {
-        VenueUrlData venueWithoutCity =
-                new VenueUrlData(Muid.create(MuidType.VENUE), VALID_NAME, null);
         event =
                 new EventUrlData(VALID_MUID, VALID_NAME, VALID_DATE,
-                        VALID_CITY, venueWithoutCity);
+                        VALID_CITY, VALID_VENUE_WITHOUR_CITY);
         testEntityValid(event);
         assertEquals(VALID_DATE, event.getDate());
         assertEquals(VALID_CITY, event.getCity());
-        assertEquals(venueWithoutCity, event.getVenue());
+        assertEquals(VALID_VENUE_WITHOUR_CITY, event.getVenue());
     }
 
 }
