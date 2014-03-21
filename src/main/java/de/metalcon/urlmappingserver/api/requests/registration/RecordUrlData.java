@@ -1,6 +1,7 @@
 package de.metalcon.urlmappingserver.api.requests.registration;
 
 import de.metalcon.domain.Muid;
+import de.metalcon.domain.MuidType;
 
 /**
  * URL information for record entities
@@ -43,7 +44,7 @@ public class RecordUrlData extends EntityUrlData {
             String name,
             BandUrlData band,
             int releaseYear) {
-        super(muid, name);
+        super(MuidType.RECORD, muid, name);
         this.band = band;
         this.releaseYear = releaseYear;
     }

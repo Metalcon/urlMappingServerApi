@@ -1,6 +1,7 @@
 package de.metalcon.urlmappingserver.api.requests.registration;
 
 import de.metalcon.domain.Muid;
+import de.metalcon.domain.MuidType;
 
 /**
  * URL information for user entities
@@ -36,7 +37,7 @@ public class UserUrlData extends EntityUrlData {
             Muid muid,
             String firstName,
             String lastName) {
-        super(muid, concatNames(firstName, lastName));
+        super(MuidType.USER, muid, concatNames(firstName, lastName));
 
         if (firstName == null) {
             throw new IllegalArgumentException("first name must not be null");

@@ -1,6 +1,7 @@
 package de.metalcon.urlmappingserver.api.requests.registration;
 
 import de.metalcon.domain.Muid;
+import de.metalcon.domain.MuidType;
 
 /**
  * URL information for track entities
@@ -55,7 +56,7 @@ public class TrackUrlData extends EntityUrlData {
             BandUrlData band,
             RecordUrlData record,
             int trackNumber) {
-        super(muid, name);
+        super(MuidType.TRACK, muid, name);
         this.band = band;
         this.record = record;
         this.trackNumber = trackNumber;

@@ -1,6 +1,7 @@
 package de.metalcon.urlmappingserver.api.requests.registration;
 
 import de.metalcon.domain.Muid;
+import de.metalcon.domain.MuidType;
 
 /**
  * URL information for genre entities
@@ -23,7 +24,7 @@ public class GenreUrlData extends EntityUrlData {
     public GenreUrlData(
             Muid muid,
             String name) {
-        super(muid, name);
+        super(MuidType.GENRE, muid, name);
     }
 
 }
