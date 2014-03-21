@@ -1,6 +1,6 @@
 package de.metalcon.urlmappingserver.api.requests.registration;
 
-import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertEquals;
 
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -20,11 +20,16 @@ public class UserUrlDataTest extends EntityUrlDataTest {
     }
 
     @Override
+    protected void testEntityValid(EntityUrlData entity) {
+        assertEquals(VALID_MUID, entity.getMuid());
+    }
+
+    @Override
     public void testMuidValid() {
         user = new UserUrlData(VALID_MUID, VALID_NAME, VALID_LAST_NAME);
         testEntityValid(user);
-        assertNotNull(user.getFirstName());
-        assertNotNull(user.getLastName());
+        assertEquals(VALID_NAME, user.getFirstName());
+        assertEquals(VALID_LAST_NAME, user.getLastName());
     }
 
     @Override
