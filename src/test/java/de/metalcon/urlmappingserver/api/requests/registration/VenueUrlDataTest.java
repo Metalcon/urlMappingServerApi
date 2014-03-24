@@ -26,6 +26,12 @@ public class VenueUrlDataTest extends EntityUrlDataTest {
     }
 
     @Override
+    public void testEntityNotEmpty() {
+        entity = new VenueUrlData(VALID_MUID, VALID_NAME, VALID_CITY);
+        super.testEntityNotEmpty();
+    }
+
+    @Override
     public void testEntityFull() {
         venue = new VenueUrlData(VALID_MUID, VALID_NAME, VALID_CITY);
         testEntityValid(venue);
