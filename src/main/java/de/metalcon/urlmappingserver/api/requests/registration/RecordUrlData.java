@@ -38,6 +38,8 @@ public class RecordUrlData extends EntityUrlData {
      * @param releaseYear
      *            release year<br>
      *            may be zero
+     * @throws IllegalArgumentException
+     *             if MUID or name <b>null</b> or MUID type mismatching
      */
     public RecordUrlData(
             Muid muid,

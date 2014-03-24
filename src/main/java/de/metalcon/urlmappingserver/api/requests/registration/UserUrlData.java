@@ -32,6 +32,9 @@ public class UserUrlData extends EntityUrlData {
      *            user's first name
      * @param lastName
      *            user's last name
+     * @throws IllegalArgumentException
+     *             if MUID or first name or last name <b>null</b> or MUID type
+     *             mismatching
      */
     public UserUrlData(
             Muid muid,

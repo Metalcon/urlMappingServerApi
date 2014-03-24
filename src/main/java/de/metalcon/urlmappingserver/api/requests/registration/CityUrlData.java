@@ -20,6 +20,8 @@ public class CityUrlData extends EntityUrlData {
      *            city ID
      * @param name
      *            city name
+     * @throws IllegalArgumentException
+     *             if MUID or name <b>null</b> or MUID type mismatching
      */
     public CityUrlData(
             Muid muid,

@@ -20,6 +20,8 @@ public class BandUrlData extends EntityUrlData {
      *            band ID
      * @param name
      *            band name
+     * @throws IllegalArgumentException
+     *             if MUID or name <b>null</b> or MUID type mismatching
      */
     public BandUrlData(
             Muid muid,

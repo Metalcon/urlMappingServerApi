@@ -29,6 +29,8 @@ public class TourUrlData extends EntityUrlData {
      * @param year
      *            year the tour started<br>
      *            may be zero
+     * @throws IllegalArgumentException
+     *             if MUID or name <b>null</b> or MUID type mismatching
      */
     public TourUrlData(
             Muid muid,

@@ -50,6 +50,8 @@ public class EventUrlData extends EntityUrlData {
      * @param venue
      *            venue the event is located in<br>
      *            may be <b>null</b>
+     * @throws IllegalArgumentException
+     *             if MUID or name <b>null</b> or MUID type mismatching
      */
     public EventUrlData(
             Muid muid,

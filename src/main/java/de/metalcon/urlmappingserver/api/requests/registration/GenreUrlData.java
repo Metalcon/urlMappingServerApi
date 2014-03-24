@@ -20,6 +20,8 @@ public class GenreUrlData extends EntityUrlData {
      *            genre ID
      * @param name
      *            genre name
+     * @throws IllegalArgumentException
+     *             if MUID or name <b>null</b> or MUID type mismatching
      */
     public GenreUrlData(
             Muid muid,

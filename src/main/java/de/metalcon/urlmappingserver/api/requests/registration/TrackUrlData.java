@@ -41,14 +41,16 @@ public class TrackUrlData extends EntityUrlData {
      * @param band
      *            band that released the track<br>
      *            may be <b>null</b><br>
-     *            if <b>null</b> the band of the record is taken, if record was
-     *            set
+     *            do only set band if record is null
      * @param record
      *            record containing the track<br>
      *            may be <b>null</b>
      * @param trackNumber
      *            track number within record<br>
      *            may be zero
+     * @throws IllegalArgumentException
+     *             if MUID or name <b>null</b> or MUID type mismatching or if
+     *             band and record set
      */
     public TrackUrlData(
             Muid muid,
@@ -57,6 +59,10 @@ public class TrackUrlData extends EntityUrlData {
             RecordUrlData record,
             int trackNumber) {
         super(MuidType.TRACK, muid, name);
+        if (band != null && record != null) {
+            throw new IllegalArgumentException(
+                    "band must not be set if record was set");
+        }
         this.band = band;
         this.record = record;
         this.trackNumber = trackNumber;

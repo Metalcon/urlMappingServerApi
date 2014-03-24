@@ -20,6 +20,8 @@ public class InstrumentUrlData extends EntityUrlData {
      *            instrument ID
      * @param name
      *            instrument name
+     * @throws IllegalArgumentException
+     *             if MUID or name <b>null</b> or MUID type mismatching
      */
     public InstrumentUrlData(
             Muid muid,

@@ -29,6 +29,8 @@ public class VenueUrlData extends EntityUrlData {
      * @param city
      *            city the venue is located in<br>
      *            may be <b>null</b>
+     * @throws IllegalArgumentException
+     *             if MUID or name <b>null</b> or MUID type mismatching
      */
     public VenueUrlData(
             Muid muid,
