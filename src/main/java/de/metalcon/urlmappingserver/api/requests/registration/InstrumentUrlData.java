@@ -26,7 +26,7 @@ public class InstrumentUrlData extends EntityUrlData {
     public InstrumentUrlData(
             Muid muid,
             String name) {
-        super(MuidType.INSTRUMENT, muid, name);
+        super(false, MuidType.INSTRUMENT, muid, name);
     }
 
 }

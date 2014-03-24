@@ -1,5 +1,6 @@
 package de.metalcon.urlmappingserver.api.requests.registration;
 
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 
 import org.junit.BeforeClass;
@@ -18,6 +19,8 @@ public abstract class EntityUrlDataTest {
 
     protected static Muid INVALID_MUID;
 
+    protected EntityUrlData entity;
+
     @BeforeClass
     public static void beforeClass() {
         VALID_MUID = Muid.create(MUID_TYPE);
@@ -35,6 +38,11 @@ public abstract class EntityUrlDataTest {
     protected void testEntityValid(EntityUrlData entity) {
         assertNotNull(entity.getMuid());
         assertNotNull(entity.getName());
+    }
+
+    @Test
+    public void testEntityNotEmpty() {
+        assertFalse(entity.hasEmptyMuid());
     }
 
     @Test

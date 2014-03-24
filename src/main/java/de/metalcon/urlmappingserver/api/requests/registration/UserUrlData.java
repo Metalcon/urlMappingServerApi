@@ -40,7 +40,7 @@ public class UserUrlData extends EntityUrlData {
             Muid muid,
             String firstName,
             String lastName) {
-        super(MuidType.USER, muid, concatNames(firstName, lastName));
+        super(false, MuidType.USER, muid, concatNames(firstName, lastName));
 
         if (firstName == null) {
             throw new IllegalArgumentException("first name must not be null");

@@ -1,6 +1,10 @@
 package de.metalcon.urlmappingserver.api.requests.registration;
 
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
+
 import org.junit.BeforeClass;
+import org.junit.Test;
 
 import de.metalcon.domain.Muid;
 import de.metalcon.domain.MuidType;
@@ -9,6 +13,8 @@ public class BandUrlDataTest extends EntityUrlDataTest {
 
     public static final BandUrlData VALID_BAND = new BandUrlData(
             Muid.create(MuidType.BAND), VALID_NAME);
+
+    protected static final BandUrlData EMPTY_BAND = new BandUrlData();
 
     protected BandUrlData band;
 
@@ -19,11 +25,25 @@ public class BandUrlDataTest extends EntityUrlDataTest {
     }
 
     @Override
+    public void testEntityNotEmpty() {
+        entity = VALID_BAND;
+        super.testEntityNotEmpty();
+    }
+
+    @Test
+    public void testEntityEmpty() {
+        entity = EMPTY_BAND;
+        assertTrue(entity.hasEmptyMuid());
+        assertNull(entity.getName());
+    }
+
+    @Override
     public void testEntityFull() {
         band = new BandUrlData(VALID_MUID, VALID_NAME);
         testEntityValid(band);
     }
 
+    @Test
     @Override
     public void testMuidNull() {
         band = new BandUrlData(null, VALID_NAME);

@@ -36,6 +36,14 @@ public class EventUrlDataTest extends EntityUrlDataTest {
     }
 
     @Override
+    public void testEntityNotEmpty() {
+        entity =
+                new EventUrlData(VALID_MUID, VALID_NAME, VALID_DATE,
+                        VALID_CITY, VALID_VENUE);
+        super.testEntityNotEmpty();
+    }
+
+    @Override
     public void testEntityFull() {
         event =
                 new EventUrlData(VALID_MUID, VALID_NAME, VALID_DATE,

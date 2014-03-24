@@ -26,7 +26,7 @@ public class CityUrlData extends EntityUrlData {
     public CityUrlData(
             Muid muid,
             String name) {
-        super(MuidType.CITY, muid, name);
+        super(false, MuidType.CITY, muid, name);
     }
 
 }

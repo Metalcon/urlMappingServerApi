@@ -26,7 +26,7 @@ public class RecordUrlData extends EntityUrlData {
     protected int releaseYear;
 
     /**
-     * create record URL information
+     * create existing record URL information
      * 
      * @param muid
      *            record ID
@@ -46,14 +46,30 @@ public class RecordUrlData extends EntityUrlData {
             String name,
             BandUrlData band,
             int releaseYear) {
-        super(MuidType.RECORD, muid, name);
-        this.band = band;
+        super(true, MuidType.RECORD, muid, name);
+        if (band == null) {
+            this.band = new BandUrlData();
+        } else {
+            this.band = band;
+        }
         this.releaseYear = releaseYear;
     }
 
     /**
+     * create anonymous record URL information
+     * 
+     * @param band
+     *            band that released the record<br>
+     *            may be <b>null</b>
+     */
+    public RecordUrlData(
+            BandUrlData band) {
+        this(null, null, band, 0);
+    }
+
+    /**
      * @return band that released the record<br>
-     *         may be <b>null</b>: multiple bands, unknown
+     *         may be anonymous: multiple bands, unknown
      */
     public BandUrlData getBand() {
         return band;

@@ -59,7 +59,7 @@ public class EventUrlData extends EntityUrlData {
             Date date,
             CityUrlData city,
             VenueUrlData venue) {
-        super(MuidType.EVENT, muid, name);
+        super(false, MuidType.EVENT, muid, name);
         this.date =
                 (date != null) ? new Date(date.getTime() - date.getTime()
                         % 1000) : null;

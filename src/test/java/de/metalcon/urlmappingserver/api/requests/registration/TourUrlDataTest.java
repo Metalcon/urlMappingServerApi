@@ -20,6 +20,12 @@ public class TourUrlDataTest extends EntityUrlDataTest {
     }
 
     @Override
+    public void testEntityNotEmpty() {
+        entity = new TourUrlData(VALID_MUID, VALID_NAME, VALID_YEAR);
+        super.testEntityNotEmpty();
+    }
+
+    @Override
     public void testEntityFull() {
         tour = new TourUrlData(VALID_MUID, VALID_NAME, VALID_YEAR);
         testEntityValid(tour);

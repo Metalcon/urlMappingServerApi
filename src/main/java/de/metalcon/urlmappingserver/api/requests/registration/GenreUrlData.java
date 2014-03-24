@@ -26,7 +26,7 @@ public class GenreUrlData extends EntityUrlData {
     public GenreUrlData(
             Muid muid,
             String name) {
-        super(MuidType.GENRE, muid, name);
+        super(false, MuidType.GENRE, muid, name);
     }
 
 }

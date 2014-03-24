@@ -14,7 +14,7 @@ public class BandUrlData extends EntityUrlData {
     private static final long serialVersionUID = -7235814801174019771L;
 
     /**
-     * create band URL information
+     * create existing band URL information
      * 
      * @param muid
      *            band ID
@@ -26,7 +26,14 @@ public class BandUrlData extends EntityUrlData {
     public BandUrlData(
             Muid muid,
             String name) {
-        super(MuidType.BAND, muid, name);
+        super(true, MuidType.BAND, muid, name);
+    }
+
+    /**
+     * create anonymous band URL information
+     */
+    public BandUrlData() {
+        this(null, null);
     }
 
 }

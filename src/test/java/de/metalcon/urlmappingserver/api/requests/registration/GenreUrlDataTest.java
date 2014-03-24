@@ -15,6 +15,12 @@ public class GenreUrlDataTest extends EntityUrlDataTest {
     }
 
     @Override
+    public void testEntityNotEmpty() {
+        entity = new GenreUrlData(VALID_MUID, VALID_NAME);
+        super.testEntityNotEmpty();
+    }
+
+    @Override
     public void testEntityFull() {
         genre = new GenreUrlData(VALID_MUID, VALID_NAME);
         testEntityValid(genre);

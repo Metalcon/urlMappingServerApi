@@ -19,6 +19,12 @@ public class CityUrlDataTest extends EntityUrlDataTest {
     }
 
     @Override
+    public void testEntityNotEmpty() {
+        entity = VALID_CITY;
+        super.testEntityNotEmpty();
+    }
+
+    @Override
     public void testEntityFull() {
         city = new CityUrlData(VALID_MUID, VALID_NAME);
         testEntityValid(city);

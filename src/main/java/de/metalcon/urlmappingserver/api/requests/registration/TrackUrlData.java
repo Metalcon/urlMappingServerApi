@@ -14,14 +14,8 @@ public class TrackUrlData extends EntityUrlData {
     private static final long serialVersionUID = 4829309992842372145L;
 
     /**
-     * band that released the track<br>
-     * may be <b>null</b>: record set, unknown
-     */
-    protected BandUrlData band;
-
-    /**
      * record containing the track<br>
-     * may be <b>null</b>: not existing, unknown
+     * may be anonymous
      */
     protected RecordUrlData record;
 
@@ -58,25 +52,17 @@ public class TrackUrlData extends EntityUrlData {
             BandUrlData band,
             RecordUrlData record,
             int trackNumber) {
-        super(MuidType.TRACK, muid, name);
+        super(true, MuidType.TRACK, muid, name);
         if (band != null && record != null) {
             throw new IllegalArgumentException(
                     "band must not be set if record was set");
         }
-        this.band = band;
-        this.record = record;
-        this.trackNumber = trackNumber;
-    }
-
-    /**
-     * @return band that released the track<br>
-     *         may be <b>null</b>
-     */
-    public BandUrlData getBand() {
-        if (band == null && record != null) {
-            return record.getBand();
+        if (record == null) {
+            this.record = new RecordUrlData(band);
+        } else {
+            this.record = record;
         }
-        return band;
+        this.trackNumber = trackNumber;
     }
 
     /**

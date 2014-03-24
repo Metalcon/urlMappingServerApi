@@ -36,7 +36,7 @@ public class TourUrlData extends EntityUrlData {
             Muid muid,
             String name,
             int year) {
-        super(MuidType.TOUR, muid, name);
+        super(false, MuidType.TOUR, muid, name);
         this.year = year;
     }
 

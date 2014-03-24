@@ -2,6 +2,7 @@ package de.metalcon.urlmappingserver.api.requests.registration;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -20,12 +21,30 @@ public class RecordUrlDataTest extends EntityUrlDataTest {
             Muid.create(MuidType.RECORD), VALID_NAME, VALID_BAND,
             VALID_RELEASE_YEAR);
 
+    protected static final RecordUrlData EMPTY_RECORD = new RecordUrlData(
+            VALID_BAND);
+
     protected RecordUrlData record;
 
     @BeforeClass
     public static void beforeClass() {
         MUID_TYPE = MuidType.RECORD;
         EntityUrlDataTest.beforeClass();
+    }
+
+    @Override
+    public void testEntityNotEmpty() {
+        entity = VALID_RECORD;
+        super.testEntityNotEmpty();
+    }
+
+    @Test
+    public void testEntityEmpty() {
+        entity = EMPTY_RECORD;
+        assertTrue(entity.hasEmptyMuid());
+        assertNull(entity.getName());
+        assertEquals(VALID_BAND, EMPTY_RECORD.getBand());
+        assertEquals(0, EMPTY_RECORD.getReleaseYear());
     }
 
     @Override
@@ -38,6 +57,7 @@ public class RecordUrlDataTest extends EntityUrlDataTest {
         assertEquals(VALID_RELEASE_YEAR, record.getReleaseYear());
     }
 
+    @Test
     @Override
     public void testMuidNull() {
         record =
@@ -65,7 +85,7 @@ public class RecordUrlDataTest extends EntityUrlDataTest {
                 new RecordUrlData(VALID_MUID, VALID_NAME, null,
                         VALID_RELEASE_YEAR);
         testEntityValid(record);
-        assertNull(record.getBand());
+        assertTrue(record.getBand().hasEmptyMuid());
         assertEquals(VALID_RELEASE_YEAR, record.getReleaseYear());
     }
 

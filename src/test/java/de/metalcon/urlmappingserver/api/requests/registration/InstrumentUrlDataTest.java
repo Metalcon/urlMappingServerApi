@@ -15,6 +15,12 @@ public class InstrumentUrlDataTest extends EntityUrlDataTest {
     }
 
     @Override
+    public void testEntityNotEmpty() {
+        entity = new InstrumentUrlData(VALID_MUID, VALID_NAME);
+        super.testEntityNotEmpty();
+    }
+
+    @Override
     public void testEntityFull() {
         instrument = new InstrumentUrlData(VALID_MUID, VALID_NAME);
         testEntityValid(instrument);
