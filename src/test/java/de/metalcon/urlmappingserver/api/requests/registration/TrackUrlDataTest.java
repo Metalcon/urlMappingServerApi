@@ -6,8 +6,8 @@ import static org.junit.Assert.assertTrue;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import de.metalcon.domain.Muid;
 import de.metalcon.domain.MuidType;
+import de.metalcon.testing.MuidFactory;
 
 public class TrackUrlDataTest extends EntityUrlDataTest {
 
@@ -17,7 +17,7 @@ public class TrackUrlDataTest extends EntityUrlDataTest {
             RecordUrlDataTest.VALID_RECORD;
 
     protected static final RecordUrlData VALID_RECORD_WITHOUT_BAND =
-            new RecordUrlData(Muid.create(MuidType.RECORD),
+            new RecordUrlData(MuidFactory.generateMuid(MuidType.RECORD),
                     VALID_RECORD.getName(), null, VALID_RECORD.getReleaseYear());
 
     protected static final int VALID_TRACK_NUMBER = 100;

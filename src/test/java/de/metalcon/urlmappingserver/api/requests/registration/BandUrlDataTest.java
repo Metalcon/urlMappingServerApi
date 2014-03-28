@@ -6,13 +6,13 @@ import static org.junit.Assert.assertTrue;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import de.metalcon.domain.Muid;
 import de.metalcon.domain.MuidType;
+import de.metalcon.testing.MuidFactory;
 
 public class BandUrlDataTest extends EntityUrlDataTest {
 
     public static final BandUrlData VALID_BAND = new BandUrlData(
-            Muid.create(MuidType.BAND), VALID_NAME);
+            MuidFactory.generateMuid(MuidType.BAND), VALID_NAME);
 
     protected static final BandUrlData EMPTY_BAND = new BandUrlData();
 

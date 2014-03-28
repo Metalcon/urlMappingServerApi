@@ -2,13 +2,13 @@ package de.metalcon.urlmappingserver.api.requests.registration;
 
 import org.junit.BeforeClass;
 
-import de.metalcon.domain.Muid;
 import de.metalcon.domain.MuidType;
+import de.metalcon.testing.MuidFactory;
 
 public class CityUrlDataTest extends EntityUrlDataTest {
 
     public static final CityUrlData VALID_CITY = new CityUrlData(
-            Muid.create(MuidType.CITY), VALID_NAME);
+            MuidFactory.generateMuid(MuidType.CITY), VALID_NAME);
 
     protected CityUrlData city;
 

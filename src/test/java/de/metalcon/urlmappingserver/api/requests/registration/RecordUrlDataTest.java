@@ -7,18 +7,19 @@ import static org.junit.Assert.assertTrue;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import de.metalcon.domain.Muid;
 import de.metalcon.domain.MuidType;
+import de.metalcon.testing.MuidFactory;
 
 public class RecordUrlDataTest extends EntityUrlDataTest {
 
     protected static final BandUrlData VALID_BAND = new BandUrlData(
-            Muid.create(MuidType.BAND), BandUrlDataTest.VALID_BAND.getName());
+            MuidFactory.generateMuid(MuidType.BAND),
+            BandUrlDataTest.VALID_BAND.getName());
 
     protected static final int VALID_RELEASE_YEAR = 2014;
 
     public static final RecordUrlData VALID_RECORD = new RecordUrlData(
-            Muid.create(MuidType.RECORD), VALID_NAME, VALID_BAND,
+            MuidFactory.generateMuid(MuidType.RECORD), VALID_NAME, VALID_BAND,
             VALID_RELEASE_YEAR);
 
     protected static final RecordUrlData EMPTY_RECORD = new RecordUrlData(

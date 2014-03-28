@@ -8,7 +8,7 @@
 
   <modelVersion>4.0.0</modelVersion>
   <artifactId>url-mapping-server-api</artifactId>
-  <version>0.1.0</version>
+  <version>0.1.1</version>
   <packaging>jar</packaging>
 
   <name>UrlMappingServerAPI</name>
@@ -19,18 +19,20 @@
     <!-- Metalcon repository to resolve dependencies from -->
     <repository>
       <id>metalcon-depend</id>
-      <url>http://metalcon2.physik.uni-mainz.de:8080/mvn/</url>
+      <url>http://develop.metalcon.de:8080/mvn/</url>
     </repository>
   </repositories>
 
   <properties>
     <!-- version of testing framework JUnit -->
     <junit.version>4.9</junit.version>
+    <!-- version of testing helper collection -->
+    <metalcon.testing.version>0.0.1</metalcon.testing.version>
 
     <!-- version of JSON -->
     <json.version>1.1</json.version>
     <!-- version of Metalcon domain -->
-    <metalcon.muid.version>0.2.0</metalcon.muid.version>
+    <metalcon.muid.version>0.2.0-SNAPSHOT</metalcon.muid.version>
     <!-- version of Metalcon API -->
     <metalcon.api.version>0.1.0</metalcon.api.version>
   </properties>
@@ -41,6 +43,11 @@
       <artifactId>junit</artifactId>
       <version>${junit.version}</version>
       <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>de.metalcon</groupId>
+      <artifactId>testing</artifactId>
+      <version>${metalcon.testing.version}</version>
     </dependency>
 
     <dependency>

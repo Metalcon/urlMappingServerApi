@@ -8,6 +8,7 @@ import org.junit.Test;
 
 import de.metalcon.domain.Muid;
 import de.metalcon.domain.MuidType;
+import de.metalcon.testing.MuidFactory;
 
 public abstract class EntityUrlDataTest {
 
@@ -23,7 +24,7 @@ public abstract class EntityUrlDataTest {
 
     @BeforeClass
     public static void beforeClass() {
-        VALID_MUID = Muid.create(MUID_TYPE);
+        VALID_MUID = MuidFactory.generateMuid(MUID_TYPE);
         INVALID_MUID = getInvalidMuid(VALID_MUID.getMuidType());
     }
 
@@ -32,7 +33,7 @@ public abstract class EntityUrlDataTest {
         if (typeIdentifier == 10) {
             typeIdentifier = 0;
         }
-        return Muid.create(MuidType.parseShort(typeIdentifier));
+        return MuidFactory.generateMuid(MuidType.parseShort(typeIdentifier));
     }
 
     protected void testEntityValid(EntityUrlData entity) {

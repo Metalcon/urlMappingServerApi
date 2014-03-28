@@ -6,16 +6,17 @@ import static org.junit.Assert.assertNull;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import de.metalcon.domain.Muid;
 import de.metalcon.domain.MuidType;
+import de.metalcon.testing.MuidFactory;
 
 public class VenueUrlDataTest extends EntityUrlDataTest {
 
     protected static final CityUrlData VALID_CITY = new CityUrlData(
-            Muid.create(MuidType.CITY), CityUrlDataTest.VALID_CITY.getName());
+            MuidFactory.generateMuid(MuidType.CITY),
+            CityUrlDataTest.VALID_CITY.getName());
 
     public static final VenueUrlData VALID_VENUE = new VenueUrlData(
-            Muid.create(MuidType.VENUE), VALID_NAME, VALID_CITY);
+            MuidFactory.generateMuid(MuidType.VENUE), VALID_NAME, VALID_CITY);
 
     protected VenueUrlData venue;
 

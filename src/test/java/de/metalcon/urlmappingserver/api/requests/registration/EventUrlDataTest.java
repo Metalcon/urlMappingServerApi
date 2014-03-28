@@ -8,8 +8,8 @@ import java.util.Date;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import de.metalcon.domain.Muid;
 import de.metalcon.domain.MuidType;
+import de.metalcon.testing.MuidFactory;
 
 public class EventUrlDataTest extends EntityUrlDataTest {
 
@@ -24,7 +24,7 @@ public class EventUrlDataTest extends EntityUrlDataTest {
             VenueUrlDataTest.VALID_VENUE;
 
     protected static final VenueUrlData VALID_VENUE_WITHOUR_CITY =
-            new VenueUrlData(Muid.create(MuidType.VENUE),
+            new VenueUrlData(MuidFactory.generateMuid(MuidType.VENUE),
                     VALID_VENUE.getName(), null);
 
     protected EventUrlData event;
