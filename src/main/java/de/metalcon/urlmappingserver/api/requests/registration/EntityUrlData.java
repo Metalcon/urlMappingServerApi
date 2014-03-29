@@ -66,6 +66,39 @@ public abstract class EntityUrlData implements Serializable {
     }
 
     /**
+     * create basic entity URL information
+     * 
+     * @param allowEmptyMuid
+     *            empty MUID flag
+     * @param muidType
+     *            MUID type the URL information is for
+     * @param muid
+     *            entity MUID
+     * @throws IllegalArgumentException
+     *             if MUID <b>null</b> or MUID type
+     *             mismatching while empty MUID flag unset
+     */
+    protected EntityUrlData(
+            boolean allowEmptyMuid,
+            MuidType muidType,
+            Muid muid) {
+        if (allowEmptyMuid && muid == null) {
+            this.muid = Muid.EMPTY_MUID;
+        } else {
+            if (muid == null) {
+                throw new IllegalArgumentException("MUID must not be null");
+            }
+            if (muid.getMuidType() != muidType) {
+                throw new IllegalArgumentException("MUID type must be \""
+                        + muidType + "\" (was \"" + muid.getMuidType() + "\")");
+            }
+
+            this.muid = muid;
+        }
+        name = null;
+    }
+
+    /**
      * @return true if entity is anonymous
      */
     public boolean hasEmptyMuid() {

@@ -1,6 +1,6 @@
 package de.metalcon.urlmappingserver.api.requests.registration;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -8,8 +8,6 @@ import org.junit.Test;
 import de.metalcon.domain.MuidType;
 
 public class TourUrlDataTest extends EntityUrlDataTest {
-
-    protected static final int VALID_YEAR = 2014;
 
     protected TourUrlData tour;
 
@@ -21,37 +19,35 @@ public class TourUrlDataTest extends EntityUrlDataTest {
 
     @Override
     public void testEntityNotEmpty() {
-        entity = new TourUrlData(VALID_MUID, VALID_NAME, VALID_YEAR);
+        entity = new TourUrlData(VALID_MUID);
         super.testEntityNotEmpty();
     }
 
     @Override
     public void testEntityFull() {
-        tour = new TourUrlData(VALID_MUID, VALID_NAME, VALID_YEAR);
+        tour = new TourUrlData(VALID_MUID);
         testEntityValid(tour);
-        assertEquals(VALID_YEAR, tour.getYear());
     }
 
     @Override
     public void testMuidNull() {
-        tour = new TourUrlData(null, VALID_NAME, VALID_YEAR);
+        tour = new TourUrlData(null);
     }
 
     @Override
     public void testMuidTypeInvalid() {
-        tour = new TourUrlData(INVALID_MUID, VALID_NAME, VALID_YEAR);
-    }
-
-    @Override
-    public void testNameNull() {
-        tour = new TourUrlData(VALID_MUID, null, VALID_YEAR);
+        tour = new TourUrlData(INVALID_MUID);
     }
 
     @Test
-    public void testYearZero() {
-        tour = new TourUrlData(VALID_MUID, VALID_NAME, 0);
-        testEntityValid(tour);
-        assertEquals(0, tour.getYear());
+    @Override
+    public void testNameNull() {
+        // allowed
+    }
+
+    @Override
+    protected void testEntityValid(EntityUrlData entity) {
+        assertNotNull(entity.getMuid());
     }
 
 }
