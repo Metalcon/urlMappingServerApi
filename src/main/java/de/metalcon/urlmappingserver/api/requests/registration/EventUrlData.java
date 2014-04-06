@@ -1,7 +1,7 @@
 package de.metalcon.urlmappingserver.api.requests.registration;
 
 import de.metalcon.domain.Muid;
-import de.metalcon.domain.MuidType;
+import de.metalcon.domain.UidType;
 
 /**
  * URL information for event entities
@@ -23,7 +23,7 @@ public class EventUrlData extends EntityUrlData {
      */
     public EventUrlData(
             Muid muid) {
-        super(false, MuidType.EVENT, muid);
+        super(false, UidType.EVENT, muid);
     }
 
 }

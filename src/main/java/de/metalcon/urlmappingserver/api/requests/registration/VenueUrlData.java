@@ -1,7 +1,7 @@
 package de.metalcon.urlmappingserver.api.requests.registration;
 
 import de.metalcon.domain.Muid;
-import de.metalcon.domain.MuidType;
+import de.metalcon.domain.UidType;
 
 /**
  * URL information for venue entities
@@ -36,7 +36,7 @@ public class VenueUrlData extends EntityUrlData {
             Muid muid,
             String name,
             CityUrlData city) {
-        super(false, MuidType.VENUE, muid, name);
+        super(false, UidType.VENUE, muid, name);
         this.city = city;
     }
 

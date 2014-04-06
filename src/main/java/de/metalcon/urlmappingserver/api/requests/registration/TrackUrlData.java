@@ -1,7 +1,7 @@
 package de.metalcon.urlmappingserver.api.requests.registration;
 
 import de.metalcon.domain.Muid;
-import de.metalcon.domain.MuidType;
+import de.metalcon.domain.UidType;
 
 /**
  * URL information for track entities
@@ -52,7 +52,7 @@ public class TrackUrlData extends EntityUrlData {
             BandUrlData band,
             RecordUrlData record,
             int trackNumber) {
-        super(true, MuidType.TRACK, muid, name);
+        super(true, UidType.TRACK, muid, name);
         if (band != null && record != null) {
             throw new IllegalArgumentException(
                     "band must not be set if record was set");

@@ -5,7 +5,7 @@ import static org.junit.Assert.assertNotNull;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import de.metalcon.domain.MuidType;
+import de.metalcon.domain.UidType;
 
 public class EventUrlDataTest extends EntityUrlDataTest {
 
@@ -13,7 +13,7 @@ public class EventUrlDataTest extends EntityUrlDataTest {
 
     @BeforeClass
     public static void beforeClass() {
-        MUID_TYPE = MuidType.EVENT;
+        MUID_TYPE = UidType.EVENT;
         EntityUrlDataTest.beforeClass();
     }
 
@@ -35,7 +35,7 @@ public class EventUrlDataTest extends EntityUrlDataTest {
     }
 
     @Override
-    public void testMuidTypeInvalid() {
+    public void testUidTypeInvalid() {
         event = new EventUrlData(INVALID_MUID);
     }
 

@@ -1,7 +1,7 @@
 package de.metalcon.urlmappingserver.api.requests.registration;
 
 import de.metalcon.domain.Muid;
-import de.metalcon.domain.MuidType;
+import de.metalcon.domain.UidType;
 
 /**
  * URL information for tour entities
@@ -23,7 +23,7 @@ public class TourUrlData extends EntityUrlData {
      */
     public TourUrlData(
             Muid muid) {
-        super(false, MuidType.TOUR, muid);
+        super(false, UidType.TOUR, muid);
     }
 
 }

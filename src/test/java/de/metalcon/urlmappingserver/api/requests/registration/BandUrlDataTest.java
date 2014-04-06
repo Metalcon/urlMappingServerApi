@@ -6,13 +6,13 @@ import static org.junit.Assert.assertTrue;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import de.metalcon.domain.MuidType;
+import de.metalcon.domain.UidType;
 import de.metalcon.testing.MuidFactory;
 
 public class BandUrlDataTest extends EntityUrlDataTest {
 
     public static final BandUrlData VALID_BAND = new BandUrlData(
-            MuidFactory.generateMuid(MuidType.BAND), VALID_NAME);
+            MuidFactory.generateMuid(UidType.BAND), VALID_NAME);
 
     protected static final BandUrlData EMPTY_BAND = new BandUrlData();
 
@@ -20,7 +20,7 @@ public class BandUrlDataTest extends EntityUrlDataTest {
 
     @BeforeClass
     public static void beforeClass() {
-        MUID_TYPE = MuidType.BAND;
+        MUID_TYPE = UidType.BAND;
         EntityUrlDataTest.beforeClass();
     }
 
@@ -50,7 +50,7 @@ public class BandUrlDataTest extends EntityUrlDataTest {
     }
 
     @Override
-    public void testMuidTypeInvalid() {
+    public void testUidTypeInvalid() {
         band = new BandUrlData(INVALID_MUID, VALID_NAME);
     }
 

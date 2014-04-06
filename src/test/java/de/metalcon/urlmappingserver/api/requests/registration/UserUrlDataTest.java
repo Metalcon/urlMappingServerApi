@@ -5,7 +5,7 @@ import static org.junit.Assert.assertEquals;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import de.metalcon.domain.MuidType;
+import de.metalcon.domain.UidType;
 
 public class UserUrlDataTest extends EntityUrlDataTest {
 
@@ -15,7 +15,7 @@ public class UserUrlDataTest extends EntityUrlDataTest {
 
     @BeforeClass
     public static void beforeClass() {
-        MUID_TYPE = MuidType.USER;
+        MUID_TYPE = UidType.USER;
         EntityUrlDataTest.beforeClass();
     }
 
@@ -44,7 +44,7 @@ public class UserUrlDataTest extends EntityUrlDataTest {
     }
 
     @Override
-    public void testMuidTypeInvalid() {
+    public void testUidTypeInvalid() {
         user = new UserUrlData(INVALID_MUID, VALID_NAME, VALID_LAST_NAME);
     }
 

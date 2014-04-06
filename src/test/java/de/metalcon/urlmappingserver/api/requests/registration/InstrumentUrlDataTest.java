@@ -2,7 +2,7 @@ package de.metalcon.urlmappingserver.api.requests.registration;
 
 import org.junit.BeforeClass;
 
-import de.metalcon.domain.MuidType;
+import de.metalcon.domain.UidType;
 
 public class InstrumentUrlDataTest extends EntityUrlDataTest {
 
@@ -10,7 +10,7 @@ public class InstrumentUrlDataTest extends EntityUrlDataTest {
 
     @BeforeClass
     public static void beforeClass() {
-        MUID_TYPE = MuidType.INSTRUMENT;
+        MUID_TYPE = UidType.INSTRUMENT;
         EntityUrlDataTest.beforeClass();
     }
 
@@ -32,7 +32,7 @@ public class InstrumentUrlDataTest extends EntityUrlDataTest {
     }
 
     @Override
-    public void testMuidTypeInvalid() {
+    public void testUidTypeInvalid() {
         instrument = new InstrumentUrlData(INVALID_MUID, VALID_NAME);
     }
 

@@ -5,7 +5,7 @@ import static org.junit.Assert.assertNotNull;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import de.metalcon.domain.MuidType;
+import de.metalcon.domain.UidType;
 
 public class TourUrlDataTest extends EntityUrlDataTest {
 
@@ -13,7 +13,7 @@ public class TourUrlDataTest extends EntityUrlDataTest {
 
     @BeforeClass
     public static void beforeClass() {
-        MUID_TYPE = MuidType.TOUR;
+        MUID_TYPE = UidType.TOUR;
         EntityUrlDataTest.beforeClass();
     }
 
@@ -35,7 +35,7 @@ public class TourUrlDataTest extends EntityUrlDataTest {
     }
 
     @Override
-    public void testMuidTypeInvalid() {
+    public void testUidTypeInvalid() {
         tour = new TourUrlData(INVALID_MUID);
     }
 

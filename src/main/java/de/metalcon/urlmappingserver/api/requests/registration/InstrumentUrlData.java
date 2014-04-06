@@ -1,7 +1,7 @@
 package de.metalcon.urlmappingserver.api.requests.registration;
 
 import de.metalcon.domain.Muid;
-import de.metalcon.domain.MuidType;
+import de.metalcon.domain.UidType;
 
 /**
  * URL information for instrument entities
@@ -26,7 +26,7 @@ public class InstrumentUrlData extends EntityUrlData {
     public InstrumentUrlData(
             Muid muid,
             String name) {
-        super(false, MuidType.INSTRUMENT, muid, name);
+        super(false, UidType.INSTRUMENT, muid, name);
     }
 
 }

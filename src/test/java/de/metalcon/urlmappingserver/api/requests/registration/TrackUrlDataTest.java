@@ -6,7 +6,7 @@ import static org.junit.Assert.assertTrue;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import de.metalcon.domain.MuidType;
+import de.metalcon.domain.UidType;
 import de.metalcon.testing.MuidFactory;
 
 public class TrackUrlDataTest extends EntityUrlDataTest {
@@ -17,7 +17,7 @@ public class TrackUrlDataTest extends EntityUrlDataTest {
             RecordUrlDataTest.VALID_RECORD;
 
     protected static final RecordUrlData VALID_RECORD_WITHOUT_BAND =
-            new RecordUrlData(MuidFactory.generateMuid(MuidType.RECORD),
+            new RecordUrlData(MuidFactory.generateMuid(UidType.RECORD),
                     VALID_RECORD.getName(), null, VALID_RECORD.getReleaseYear());
 
     protected static final int VALID_TRACK_NUMBER = 100;
@@ -26,7 +26,7 @@ public class TrackUrlDataTest extends EntityUrlDataTest {
 
     @BeforeClass
     public static void beforeClass() {
-        MUID_TYPE = MuidType.TRACK;
+        MUID_TYPE = UidType.TRACK;
         EntityUrlDataTest.beforeClass();
     }
 
@@ -57,7 +57,7 @@ public class TrackUrlDataTest extends EntityUrlDataTest {
     }
 
     @Override
-    public void testMuidTypeInvalid() {
+    public void testUidTypeInvalid() {
         track =
                 new TrackUrlData(INVALID_MUID, VALID_NAME, null, VALID_RECORD,
                         VALID_TRACK_NUMBER);
