@@ -3,7 +3,7 @@
   <parent>
     <groupId>de.metalcon</groupId>
     <artifactId>pom</artifactId>
-    <version>0.0.1</version>
+    <version>0.0.3</version>
   </parent>
 
   <modelVersion>4.0.0</modelVersion>
@@ -24,17 +24,8 @@
   </repositories>
 
   <properties>
-    <!-- version of testing framework JUnit -->
-    <junit.version>4.9</junit.version>
-    <!-- version of testing helper collection -->
-    <metalcon.testing.version>0.0.2</metalcon.testing.version>
-
     <!-- version of JSON -->
     <json.version>1.1</json.version>
-    <!-- version of Metalcon domain -->
-    <metalcon.muid.version>0.3.1</metalcon.muid.version>
-    <!-- version of Metalcon API -->
-    <metalcon.api.version>0.1.0</metalcon.api.version>
   </properties>
 
   <dependencies>
@@ -68,8 +59,8 @@
     <!-- basic Metalcon API holding requests/responses -->
     <dependency>
       <groupId>de.metalcon</groupId>
-      <artifactId>api</artifactId>
-      <version>${metalcon.api.version}</version>
+      <artifactId>backend-api</artifactId>
+      <version>${metalcon.backendApi.version}</version>
     </dependency>
   </dependencies>
 </project>
