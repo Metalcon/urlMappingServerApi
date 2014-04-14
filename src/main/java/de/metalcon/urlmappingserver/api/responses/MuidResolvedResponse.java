@@ -1,40 +1,39 @@
 package de.metalcon.urlmappingserver.api.responses;
 
 import de.metalcon.api.responses.SuccessResponse;
-import de.metalcon.domain.Muid;
 
 /**
- * response: MUID was resolved successfully
+ * response: MUID was successfully resolved to URL
  * 
  * @author sebschlicht
  * 
  */
 public class MuidResolvedResponse extends SuccessResponse {
 
-    private static final long serialVersionUID = -4562632902314567529L;
+    private static final long serialVersionUID = 6839536627177880096L;
 
     /**
-     * resolved MUID
+     * URL the MUID was resolved to
      */
-    protected Muid muid;
+    protected String url;
 
     /**
      * create MUID resolved response
      * 
-     * @param muid
-     *            resolved MUID
+     * @param url
+     *            URL the MUID was resolved to
      */
     public MuidResolvedResponse(
-            Muid muid) {
+            String url) {
         super();
-        this.muid = muid;
+        this.url = url;
     }
 
     /**
-     * @return resolved MUID
+     * @return URL the MUID was resolved to
      */
-    public Muid getMuid() {
-        return muid;
+    public String getUrl() {
+        return url;
     }
 
 }

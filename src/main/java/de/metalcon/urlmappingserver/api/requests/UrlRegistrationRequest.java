@@ -8,7 +8,7 @@ import de.metalcon.urlmappingserver.api.requests.registration.EntityUrlData;
  * @author sebschlicht
  * 
  */
-public class UrlMappingRegistrationRequest extends UrlMappingRequest {
+public class UrlRegistrationRequest extends UrlMappingRequest {
 
     private static final long serialVersionUID = -8451776170663227973L;
 
@@ -23,7 +23,7 @@ public class UrlMappingRegistrationRequest extends UrlMappingRequest {
      * @param urlData
      *            URL information for the entity
      */
-    public UrlMappingRegistrationRequest(
+    public UrlRegistrationRequest(
             EntityUrlData urlData) {
         if (urlData == null) {
             throw new IllegalArgumentException("url data must not be null");

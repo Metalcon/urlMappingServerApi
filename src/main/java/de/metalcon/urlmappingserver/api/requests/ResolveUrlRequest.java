@@ -10,7 +10,7 @@ import de.metalcon.domain.UidType;
  * @author sebschlicht
  * 
  */
-public class UrlMappingResolveRequest extends UrlMappingRequest {
+public class ResolveUrlRequest extends UrlMappingRequest {
 
     private static final long serialVersionUID = -8896029228990786870L;
 
@@ -25,14 +25,14 @@ public class UrlMappingResolveRequest extends UrlMappingRequest {
     private UidType UidType;
 
     /**
-     * create URL mapping resolve request
+     * create URL resolve request
      * 
      * @param urlPathVars
      *            path variables in URL
      * @param UidType
      *            type of the entity to resolve
      */
-    public UrlMappingResolveRequest(
+    public ResolveUrlRequest(
             Map<String, String> urlPathVars,
             UidType UidType) {
         if (urlPathVars == null) {
